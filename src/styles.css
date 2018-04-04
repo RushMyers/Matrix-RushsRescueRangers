@@ -23,7 +23,19 @@
 .heading {
     font-family: 'Orbitron', sans-serif;
     font-style: italic;
-    color: #FD5436;
-    text-shadow: 2px 2px black;
+    font-size: 2.5em;
+    color: #FD9D25;
+    text-shadow: 2px 2px #08090A;
     text-align: center;
+}
+.header { 
+    background-color: #51219B;
+    height: 5em;
+    padding: 1px;
+    box-shadow: 0 4px 4px 0 #08090A;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+.animal-container  { 
+    display: flex;
 }
