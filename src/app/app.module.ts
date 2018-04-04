@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 
-import { AppComponent } from './app.component';
-import { APP_Routes } from './app.routes';
+import { AppComponent } from './components/app/app.component';
+import { APP_ROUTES } from './app.routes';
 import { APP_COMPONENTS } from './app.components';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { APP_COMPONENTS } from './app.components';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot( APP_Routes )
+    RouterModule.forRoot( APP_ROUTES )
   ],
   providers: [],
   bootstrap: [AppComponent]
