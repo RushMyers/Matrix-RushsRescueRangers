@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #FAF2F3;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+.heading {
+    font-family: 'Rammetto One', cursive;
+    font-style: italic;
+    font-size: 3rem;
+    color: #D0452D;
+    text-shadow: 5px 5px 5px #08090A;
+    text-align: center;
+}
+.header {
+    background-color: #7049AD;
+    height: 6em;
+    box-shadow: 0 4px 4px 0 #08090A;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+.first-letter {
+    font-size: 4rem;
+}
+.card {
+    max-width: 16em;
+    box-shadow: 0 4px 4px 0  #08090A;
+    border-radius: 5px;
+    background-color: white;
+    transition: .2s;
+    margin-top: 16px;
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0  #08090A;
+    cursor: pointer;
+}
+.card img {
+    border-radius: 5px 5px 0 0;
+}
+.card .container {
+    padding-bottom: 4px;
+    max-width: 100%;
+}

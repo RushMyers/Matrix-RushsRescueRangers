@@ -1,1 +1,3 @@
-<h1>Hello from Rush's Rescue Rangers</h1>
+<div class="container animal-container">
+    <app-animal *ngFor="let a of animals" [name]="a.name" [species]="a.species" [imageUrl]="a.imageUrl"></app-animal>
+</div>
