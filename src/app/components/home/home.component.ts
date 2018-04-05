@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
 import { Animal } from '../../models/animal';
 
 @Component({
@@ -8,12 +10,14 @@ import { Animal } from '../../models/animal';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    public animals: Array<Animal> = [
-        { name: 'fluffy', species: 'dog', imageUrl: 'https://i.imgur.com/hQYrLMg.jpg' },
-        { name: 'pickles', species: 'cat', imageUrl: 'https://tse4.mm.bing.net/th?id=OIP.fPn2N7rRGFXN40a6P4zdsQHaFj&pid=15.1&f=1' },
-        { name: 'trigger', species: 'horse', imageUrl: 'https://tse3.mm.bing.net/th?id=OIP.GXcxaB9lFJwEixLfIKYnHgHaEo&pid=15.1&f=1' },
-    ];
-    constructor() { }
+    public animals: Array<Animal>;
+    private animalsSubscription: any;
 
-    ngOnInit() { }
+    constructor(private _store: Store<any>) { }
+
+    ngOnInit() {
+        this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {
+            this.animals = animals;
+        });
+    }
 }
