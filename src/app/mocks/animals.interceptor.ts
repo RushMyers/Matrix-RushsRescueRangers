@@ -20,14 +20,14 @@ export class MockAnimalInterceptor implements HttpInterceptor {
     }
 
     private getAllAnimals(): Array<Animal> {
-        const allAnimals = [
-            { name: 'Fluffy', species: 'Dog', imageUrl: 'https://i.imgur.com/hQYrLMg.jpg' },
-            { name: 'Pickles', species: 'Cat', imageUrl: 'https://tse4.mm.bing.net/th?id=OIP.fPn2N7rRGFXN40a6P4zdsQHaFj&pid=15.1&f=1' },
-            { name: 'Trigger', species: 'Horse', imageUrl: 'https://tse3.mm.bing.net/th?id=OIP.GXcxaB9lFJwEixLfIKYnHgHaEo&pid=15.1&f=1' },
-            { name: 'Chorky', species: 'Pig', imageUrl: 'https://tse1.mm.bing.net/th?id=OIP.8dvgkNHAa48Rzqb9s17KbAHaE6&pid=15.1&f=1' },
-            { name: 'Brenda', species: 'Dog', imageUrl: 'https://tse3.mm.bing.net/th?id=OIP._pr6CLQpzK63jX2pyo6ecQHaFj&pid=15.1&f=1' },
-            { name: 'Henry', species: 'Dog', imageUrl: 'https://tse1.mm.bing.net/th?id=OIP.zruah6Jdcz5FCcbwGeabxQHaHa&pid=15.1&f=1' },
-            { name: 'Cathy', species: 'Cat', imageUrl: 'https://tse4.mm.bing.net/th?id=OIP.T6umakCG1lpkq3MOwTe-gQHaFj&pid=15.1&f=1' }
+        const allAnimals: Array<Animal> = [
+            { id: 1, name: 'Fluffy', species: 'Dog', imageUrl: 'https://i.imgur.com/eZwTsb6.jpg' },
+            { id: 2, name: 'Pickles', species: 'Cat', imageUrl: 'https://i.imgur.com/zItMO7k.jpg' },
+            { id: 3, name: 'Trigger', species: 'Horse', imageUrl: 'https://i.imgur.com/I7gvJ42.jpg' },
+            { id: 4, name: 'Chorky', species: 'Pig', imageUrl: 'https://i.imgur.com/qJ30HYJ.jpg' },
+            { id: 5, name: 'Brenda', species: 'Dog', imageUrl: 'https://i.imgur.com/nTt8wvq.jpg' },
+            { id: 6, name: 'Henry', species: 'Dog', imageUrl: 'https://i.imgur.com/5V21pDS.jpg' },
+            { id: 7, name: 'Cathy', species: 'Cat', imageUrl: 'https://i.imgur.com/w6TFe5X.jpg' }
 
         ];
         return allAnimals;
