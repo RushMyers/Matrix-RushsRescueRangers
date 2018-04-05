@@ -16,7 +16,7 @@ import { APP_STORES } from './app.stores';
 
 @NgModule({
   declarations: [
-    ...APP_COMPONENTS
+    ...APP_COMPONENTS,
   ],
   imports: [
     BrowserModule,

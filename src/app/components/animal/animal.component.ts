@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Animal } from '../../models/animal';
 
 @Component({
   selector: 'app-animal',
@@ -6,13 +9,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./animal.component.css'],
 })
 export class AnimalComponent implements OnInit {
-  @Input() public name: string;
-  @Input() public species: string;
-  @Input() public imageUrl: string;
+  @Input() public animal: Animal;
 
-  constructor() { }
+  constructor(
+    private _router: Router
+  ) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+  public showAnimal(animalId: number): void {
+    this._router.navigate(['animal', animalId]);
   }
 
 }

@@ -1,9 +1,9 @@
-<div class="card">
-  <img src="{{ imageUrl }}" alt="Dog" style=width:100%>
+<div class="card" (click)="showAnimal(animal.id)">
+  <img src="{{ animal.imageUrl }}" alt="Dog">
   <div class="container">
     <h4>
-      <b>{{name}}</b>
+      <b>{{animal.name}}</b>
     </h4>
-    <p>{{species}}</p>
+    <p>{{animal.species}}</p>
   </div>
 </div>

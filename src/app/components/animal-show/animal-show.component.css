@@ -1,0 +1,30 @@
+.animal-show-container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.animal-show-card {
+    width: 50%;
+    height: 24em;
+    box-shadow: 0 4px 4px 0  #08090A;
+    border-radius: 5px;
+    background-color: white;
+    transition: .2s;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.animal-show-container img {
+    display: block;
+    margin: 20px auto;
+    border-radius: 5px;
+    object-fit: scale-down;
+}
+.animal-show-card .container {
+    padding-bottom: 4px;
+    max-width: 100%;
+    flex-direction: column;
+}
