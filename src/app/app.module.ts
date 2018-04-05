@@ -6,8 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './components/app/app.component';
 import { APP_ROUTES } from './app.routes';
 import { APP_COMPONENTS } from './app.components';
-import { HeaderComponent } from './components/header/header.component';
-import { AnimalComponent } from './components/animal/animal.component';
 
 @NgModule({
   declarations: [
