@@ -33,22 +33,15 @@ body {
     text-shadow: 5px 5px 5px #08090A;
     text-align: center;
 }
-.header { 
+.header {
     background-color: #7049AD;
     height: 6em;
     box-shadow: 0 4px 4px 0 #08090A;
     vertical-align: middle;
     border-radius: 5px;
 }
-.first-letter { 
+.first-letter {
     font-size: 4rem;
-}
-.animal-container  { 
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    margin-top: 16px;
-    margin-bottom: 16px;
 }
 .card {
     max-width: 16em;
@@ -58,7 +51,7 @@ body {
     transition: .2s;
     margin-top: 16px;
 }
-.card:hover { 
+.card:hover {
     box-shadow: 0 8px 16px 0  #08090A;
     cursor: pointer;
 }
