@@ -15,9 +15,10 @@
     margin-bottom: 10px;
     margin-left: auto;
     margin-right:auto;
+    padding:18px;
 }
 
-.animal-detail-container img {
+.container img {
     display: block;
     margin: 20px auto;
     border-radius: 5px;
@@ -27,4 +28,16 @@
     padding-bottom: 4px;
     max-width: 100%;
     flex-direction: column;
+}
+.center {
+    display: block;
+    margin: 0 auto;
+}
+.animal-detail-container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
 }

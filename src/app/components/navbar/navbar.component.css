@@ -1,0 +1,19 @@
+nav {
+    display: block;
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    background-color: #FDEB6C;
+    border-radius: 3px;
+}
+.navbar-container {
+    margin-top: 4px;
+}
+.navbar-link {
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    /* float: right; */
+}
