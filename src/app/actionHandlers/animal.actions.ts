@@ -1,9 +1,9 @@
+import { Animal } from '../models/animal';
 import * as Constants from '../constants/constants';
 import { HttpClient, HttpErrorResponse, HttpRequest, HttpResponse } from '@angular/common/http';
-import { Animal } from '../models/animal';
+import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { UPDATE_ANIMALS } from '../stores/animals.store';
-import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AnimalActions {

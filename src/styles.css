@@ -51,6 +51,7 @@ body {
     background-color: white;
     transition: .2s;
     margin-top: 16px;
+    margin-bottom: 10px;
 }
 .card:hover {
     box-shadow: 0 8px 16px 0  #08090A;
@@ -58,13 +59,6 @@ body {
 }
 .card img {
     border-radius: 5px 5px 0 0;
-    /* position: relative;
-    float: left;
-    width:  16em;
-    height: 16em;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    margin-bottom: 16px; */
     width: 16em;
     height: 16em;
     object-fit: scale-down;
@@ -72,4 +66,16 @@ body {
 .card .container {
     padding-bottom: 4px;
     max-width: 100%;
+}
+.button {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }

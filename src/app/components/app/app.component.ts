@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { AnimalActions } from '../../actionHandlers/animal.actions';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',

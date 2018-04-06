@@ -1,10 +1,10 @@
-.animal-show-container {
+.animal-detail-container {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
-.animal-show-card {
+.animal-detail-card {
     width: 50%;
     height: 24em;
     box-shadow: 0 4px 4px 0  #08090A;
@@ -17,13 +17,13 @@
     margin-right:auto;
 }
 
-.animal-show-container img {
+.animal-detail-container img {
     display: block;
     margin: 20px auto;
     border-radius: 5px;
     object-fit: scale-down;
 }
-.animal-show-card .container {
+.animal-detail-card .container {
     padding-bottom: 4px;
     max-width: 100%;
     flex-direction: column;

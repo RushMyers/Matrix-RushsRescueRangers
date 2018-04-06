@@ -5,11 +5,11 @@ import { Store } from '@ngrx/store';
 import { Animal } from '../../models/animal';
 
 @Component({
-  selector: 'app-animal-show',
-  templateUrl: './animal-show.component.html',
-  styleUrls: ['./animal-show.component.css']
+  selector: 'app-animal-detail',
+  templateUrl: './animal-detail.component.html',
+  styleUrls: ['./animal-detail.component.css']
 })
-export class AnimalShowComponent implements OnInit {
+export class AnimalDetailComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
