@@ -13,7 +13,9 @@ export class HomeComponent implements OnInit {
     public animals: Array<Animal>;
     private animalsSubscription: any;
 
-    constructor(private _store: Store<any>) { }
+    constructor(
+        private _store: Store<any>
+    ) { }
 
     ngOnInit() {
         this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {

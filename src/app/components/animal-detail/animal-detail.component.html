@@ -1,0 +1,12 @@
+<div class="container">
+  <img src="{{ selectedAnimal.imageUrl }}" alt="{{ selectedAnimal.name }}">
+  <div class="animal-detail-card">
+    <h2>
+      <b>{{ selectedAnimal.name }}</b>
+      <hr>
+    </h2>
+
+    <h4>{{ selectedAnimal.species }}</h4>
+  </div>
+  <button class="button" (click)="showAllAnimals()">back to animals</button>
+</div>

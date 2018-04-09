@@ -1,13 +1,17 @@
-import { HomeComponent } from './components/home/home.component';
 import { AppComponent } from './components/app/app.component';
-import { HeaderComponent } from './components/header/header.component';
 import { AnimalComponent } from './components/animal/animal.component';
-import { AnimalShowComponent } from './components/animal-show/animal-show.component';
+import { AnimalDetailComponent } from './components/animal-detail/animal-detail.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { NewAnimalComponent } from './components/new-animal/new-animal.component';
 
 export const APP_COMPONENTS = [
-    AppComponent,
-    HomeComponent,
-    HeaderComponent,
     AnimalComponent,
-    AnimalShowComponent
+    AnimalDetailComponent,
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    NavbarComponent,
+    NewAnimalComponent
 ];

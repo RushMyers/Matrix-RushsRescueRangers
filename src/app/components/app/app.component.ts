@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AnimalActions } from '../../actionHandlers/animal.actions';
 
 @Component({

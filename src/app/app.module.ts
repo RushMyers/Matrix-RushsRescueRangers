@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 
 
@@ -20,10 +22,12 @@ import { APP_STORES } from './app.stores';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     HttpModule,
     RouterModule.forRoot(APP_ROUTES),
-    StoreModule.forRoot(APP_STORES)
+    StoreModule.forRoot(APP_STORES),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [
     ...APP_ACTIONS,
