@@ -1,0 +1,41 @@
+.new-animal-form {
+    width: 65%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 30px auto 0 auto;
+    border: 6px solid transparent;
+    font-size: large;
+}
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px 20px 60px;
+}
+
+.new-animal-input {
+    width: 75%;
+    height: 20px;
+    border: 1px solid #E4DCDD;
+    border-radius: 4px;
+}
+
+.new-animal-button {
+    /* display: inline-block; */
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #FFD275;
+    float: right;
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}

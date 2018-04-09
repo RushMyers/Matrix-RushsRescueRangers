@@ -4,6 +4,7 @@ import { AnimalDetailComponent } from './components/animal-detail/animal-detail.
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NewAnimalComponent } from './components/new-animal/new-animal.component';
 
 export const APP_COMPONENTS = [
     AnimalComponent,
@@ -11,5 +12,6 @@ export const APP_COMPONENTS = [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    NewAnimalComponent
 ];
