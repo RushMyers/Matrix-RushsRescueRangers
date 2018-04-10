@@ -7,6 +7,7 @@
     </h2>
 
     <h4>{{ selectedAnimal.species }}</h4>
+    <button class="button edit-animal" (click)="deleteAnimal()">Delete</button>
     <button class="button edit-animal" (click)="editAnimal()">Edit</button>
   </div>
   <button class="button" (click)="showAllAnimals()">back to animals</button>

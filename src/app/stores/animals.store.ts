@@ -9,7 +9,8 @@ export const
     UPDATE_ANIMALS = 'UPDATE_ANIMALS',
     CLEAR_ANIMALS = 'CLEAR_ANIMALS',
     ADD_ANIMAL = 'ADD_ANIMAL',
-    EDIT_ANIMAL = 'EDIT_ANIMAL';
+    EDIT_ANIMAL = 'EDIT_ANIMAL',
+    DELETE_ANIMAL = 'DELETE_ANIMAL';
 
 export class UpdateAnimalsAction implements Action {
     readonly type = UPDATE_ANIMALS;
@@ -25,7 +26,10 @@ export class AddAnimalAction implements Action {
 export class EditAnimalAction implements Action {
     readonly type = EDIT_ANIMAL;
 }
-export type Actions = UpdateAnimalsAction | ClearanimalsAction | AddAnimalAction | EditAnimalAction;
+export class DeleteAnimalAction implements Action {
+    readonly type = DELETE_ANIMAL;
+}
+export type Actions = UpdateAnimalsAction | ClearanimalsAction | AddAnimalAction | EditAnimalAction | DeleteAnimalAction;
 
 // Store/Reducer
 export function animals(state: State = [], action: Actions): State {
@@ -48,6 +52,9 @@ export function animals(state: State = [], action: Actions): State {
             return [...state, newAnimal];
 
         case EDIT_ANIMAL:
+            return state;
+
+        case DELETE_ANIMAL:
             return state;
 
         default:

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 import { Animal } from '../models/animal';
 import * as Constants from '../constants/constants';
-import { UPDATE_ANIMALS, ADD_ANIMAL, EDIT_ANIMAL } from '../stores/animals.store';
+import { UPDATE_ANIMALS, ADD_ANIMAL, EDIT_ANIMAL, DELETE_ANIMAL } from '../stores/animals.store';
 
 @Injectable()
 export class AnimalActions {
@@ -50,6 +50,15 @@ export class AnimalActions {
                 },
                 (err) => {
                     alert(err);
+                }
+            );
+    }
+    public deleteAnimal(animal): void {
+        this._http.delete<Animal>(`${Constants.ApiBaseUrl}/animals/${animal.id}/delete`)
+            .subscribe(
+                (res) => {
+                    this._store.dispatch({ type: DELETE_ANIMAL, payload: res });
+                    this._router.navigate(['']);
                 }
             );
     }

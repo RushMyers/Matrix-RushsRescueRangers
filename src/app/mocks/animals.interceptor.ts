@@ -42,6 +42,12 @@ export class MockAnimalInterceptor implements HttpInterceptor {
             });
             return Observable.of(response);
         }
+        if (req.method === 'DELETE' && req.url === `${Constants.ApiBaseUrl}/animals/${req.body.id}/edit`) {
+            const animalToDelete: Animal = req.body;
+            const response = new HttpResponse({
+                body: animalToDelete
+            });
+        }
 
         return next.handle(req);
     }

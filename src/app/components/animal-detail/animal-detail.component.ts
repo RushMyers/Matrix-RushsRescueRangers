@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { Animal } from '../../models/animal';
+import { AnimalActions } from '../../actionHandlers/animal.actions';
 
 @Component({
   selector: 'app-animal-detail',
@@ -14,7 +15,8 @@ export class AnimalDetailComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
-    private _store: Store<any>
+    private _store: Store<any>,
+    private _animalActions: AnimalActions
   ) { }
 
   public selectedAnimal: Animal;
@@ -33,10 +35,12 @@ export class AnimalDetailComponent implements OnInit {
     this.selectedAnimal = this.animals.find(animal => animal.id === id);
   }
 
-  private editAnimal(): void {
+  public editAnimal(): void {
     this._router.navigate([`animals/${this.selectedAnimal.id}/edit`]);
   }
-
+  public deleteAnimal(): void {
+    this._animalActions.deleteAnimal(this.selectedAnimal);
+  }
   public showAllAnimals(): void {
     this._router.navigate(['']);
   }
