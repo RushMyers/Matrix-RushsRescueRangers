@@ -36,7 +36,7 @@ export class EditAnimalComponent implements OnInit {
   }
 
   private updateAnimal(): void {
-    this._animalActions.updateAnimal();
+    this._animalActions.updateAnimal(this.selectedAnimal);
   }
 
 }

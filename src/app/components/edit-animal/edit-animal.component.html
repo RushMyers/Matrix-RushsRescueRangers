@@ -1,24 +1,24 @@
 <div class="container">
   <h3>Edit {{ selectedAnimal.name }}</h3>
 
-  <form class="form clearfix" action="updateAnimal()">
+  <form class="form clearfix">
 
     <div class="form-group">
       <label for="name" class="label">Name</label>
-      <input id="name" type="text" class="input" required name="name" placeholder="{{selectedAnimal.name}}">
+      <input type="text" class="input" name="name" [(ngModel)]="selectedAnimal.name">
     </div>
 
     <div class="form-group">
       <label for="species" class="label">Species</label>
-      <input id="species" type="text" class="input" required name="name" placeholder="{{selectedAnimal.species}}">
+      <input type="text" class="input" name="species" [(ngModel)]="selectedAnimal.species">
     </div>
 
     <div class="form-group">
       <label for="id" class="label">Image Url</label>
-      <input id="id" type="text" class="input" required name="name" placeholder="{{selectedAnimal.imageUrl}}">
+      <input type="text" class="input" name="imageUrl" [(ngModel)]="selectedAnimal.imageUrl">
     </div>
 
-    <button class="button update-button" (click)="this.updateAnimal()">Update</button>
+    <button type="submit" class="button update-button" (click)="this.updateAnimal()">Update</button>
   </form>
 
 </div>

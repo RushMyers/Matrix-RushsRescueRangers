@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 import { Animal } from '../models/animal';
 import * as Constants from '../constants/constants';
-import { UPDATE_ANIMALS, ADD_ANIMAL } from '../stores/animals.store';
+import { UPDATE_ANIMALS, ADD_ANIMAL, EDIT_ANIMAL } from '../stores/animals.store';
 
 @Injectable()
 export class AnimalActions {
@@ -42,7 +42,16 @@ export class AnimalActions {
             );
     }
     public updateAnimal(animalInfo): void {
-        console.log(animalInfo);
+        this._http.put<Animal>(`${Constants.ApiBaseUrl}/animals/${animalInfo.id}/edit`, animalInfo)
+            .subscribe(
+                (res) => {
+                    this._store.dispatch({ type: EDIT_ANIMAL, payload: res });
+                    this._router.navigate(['']);
+                },
+                (err) => {
+                    alert(err);
+                }
+            );
     }
 }
 

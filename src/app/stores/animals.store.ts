@@ -8,7 +8,8 @@ export type State = Array<Animal>;
 export const
     UPDATE_ANIMALS = 'UPDATE_ANIMALS',
     CLEAR_ANIMALS = 'CLEAR_ANIMALS',
-    ADD_ANIMAL = 'ADD_ANIMAL';
+    ADD_ANIMAL = 'ADD_ANIMAL',
+    EDIT_ANIMAL = 'EDIT_ANIMAL';
 
 export class UpdateAnimalsAction implements Action {
     readonly type = UPDATE_ANIMALS;
@@ -21,7 +22,10 @@ export class AddAnimalAction implements Action {
     readonly type = ADD_ANIMAL;
     payload: Animal;
 }
-export type Actions = UpdateAnimalsAction | ClearanimalsAction | AddAnimalAction;
+export class EditAnimalAction implements Action {
+    readonly type = EDIT_ANIMAL;
+}
+export type Actions = UpdateAnimalsAction | ClearanimalsAction | AddAnimalAction | EditAnimalAction;
 
 // Store/Reducer
 export function animals(state: State = [], action: Actions): State {
@@ -42,6 +46,9 @@ export function animals(state: State = [], action: Actions): State {
             };
 
             return [...state, newAnimal];
+
+        case EDIT_ANIMAL:
+            return state;
 
         default:
             return state;
