@@ -41,5 +41,8 @@ export class AnimalActions {
                 }
             );
     }
+    public updateAnimal(animalInfo): void {
+        console.log(animalInfo);
+    }
 }
 
