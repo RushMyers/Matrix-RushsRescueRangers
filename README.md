@@ -1,11 +1,11 @@
 # RescueRangers
 
-## Feature Backlog 
+## Feature Backlog
 
 1. ~~Viewing All Animals~~
 2. ~~Register an Animal~~
-3. Update an Animal's Info
-4. Delete and Animal
+3. ~~Update an Animal's Info~~
+4. ~~Delete an Animal~~
 5. Process Adoptions
 6. View Tasks (Outstanding Tasks)
 7. View Activity Log (Completed Tasks)
