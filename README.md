@@ -1,5 +1,16 @@
 # RescueRangers
 
+## Feature Backlog
+
+1. ~~Viewing All Animals~~
+2. ~~Register an Animal~~
+3. ~~Update an Animal's Info~~
+4. ~~Delete an Animal~~
+5. Process Adoptions
+6. View Tasks (Outstanding Tasks)
+7. View Activity Log (Completed Tasks)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
 ## Development server

@@ -5,9 +5,14 @@ import 'rxjs/add/observable/of';
 
 import * as Constants from '../constants/constants';
 import { Animal } from '../models/animal';
+import { Store } from '@ngrx/store';
 
 @Injectable()
 export class MockAnimalInterceptor implements HttpInterceptor {
+    constructor(
+        private _store: Store<any>,
+    ) { }
+
     private allAnimals: Array<Animal> = [
         { id: 1, name: 'Fluffy', species: 'Dog', imageUrl: 'https://i.imgur.com/eZwTsb6.jpg' },
         { id: 2, name: 'Pickles', species: 'Cat', imageUrl: 'https://i.imgur.com/zItMO7k.jpg' },
@@ -34,11 +39,45 @@ export class MockAnimalInterceptor implements HttpInterceptor {
             });
             return Observable.of(response);
         }
+        if (req.method === 'PUT' && req.url === `${Constants.ApiBaseUrl}/animals/${req.body.id}/edit`) {
+            const updatedAnimal: Animal = req.body;
+            const response = new HttpResponse({
+                body: updatedAnimal
+            });
+            return Observable.of(response);
+        }
+        if (req.method === 'DELETE' && req.url.substring(0, Constants.ApiBaseUrl.length + 9)) {
+            const currentAnimals: Array<Animal> = this.getCurrentAnimals();
+            const animalId: number = +req.url.substring(Constants.ApiBaseUrl.length + 9);
+
+            let response: HttpResponse<boolean>;
+            if (currentAnimals.find(animal => animal.id === animalId)) {
+                response = new HttpResponse({
+                    body: true
+                });
+            } else {
+                response = new HttpResponse({
+                    body: false
+                });
+            }
+            return Observable.of(response);
+        }
 
         return next.handle(req);
     }
 
     private getAllAnimals(): Array<Animal> {
         return this.allAnimals;
+    }
+
+    private getCurrentAnimals(): Array<Animal> {
+        let currentAnimals = [];
+        this._store.select('animals').subscribe((animals: Array<Animal>) => {
+            if (animals) {
+                currentAnimals = animals;
+            }
+        });
+
+        return currentAnimals;
     }
 }
