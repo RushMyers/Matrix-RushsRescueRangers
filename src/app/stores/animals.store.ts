@@ -1,5 +1,7 @@
 import { Action } from '@ngrx/store';
+
 import { Animal } from '../models/animal';
+import { makeClone } from '../helpers/utilities';
 
 // State
 export type State = Array<Animal>;
@@ -25,14 +27,18 @@ export class AddAnimalAction implements Action {
 }
 export class EditAnimalAction implements Action {
     readonly type = EDIT_ANIMAL;
+    payload: Animal;
 }
 export class DeleteAnimalAction implements Action {
     readonly type = DELETE_ANIMAL;
+    payload: number;
 }
 export type Actions = UpdateAnimalsAction | ClearanimalsAction | AddAnimalAction | EditAnimalAction | DeleteAnimalAction;
 
 // Store/Reducer
 export function animals(state: State = [], action: Actions): State {
+    let newState: State;
+
     switch (action.type) {
 
         case UPDATE_ANIMALS:
@@ -52,10 +58,15 @@ export function animals(state: State = [], action: Actions): State {
             return [...state, newAnimal];
 
         case EDIT_ANIMAL:
-            return state;
+            newState = makeClone(state);
+            const animalIndex = newState.findIndex(animal => animal.id === action.payload.id);
+            newState[animalIndex] = action.payload;
+            return newState;
 
         case DELETE_ANIMAL:
-            return state;
+            newState = makeClone(state);
+            newState = newState.filter(animal => animal.id !== action.payload);
+            return newState;
 
         default:
             return state;

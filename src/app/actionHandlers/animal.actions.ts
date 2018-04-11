@@ -54,13 +54,19 @@ export class AnimalActions {
             );
     }
     public deleteAnimal(animal): void {
-        this._http.delete<Animal>(`${Constants.ApiBaseUrl}/animals/${animal.id}/delete`)
+        this._http.delete<boolean>(`${Constants.ApiBaseUrl}/animals/${animal.id}`)
             .subscribe(
                 (res) => {
-                    this._store.dispatch({ type: DELETE_ANIMAL, payload: res });
-                    this._router.navigate(['']);
+                    if (res) {
+                        this._store.dispatch({ type: DELETE_ANIMAL, payload: animal.id });
+                        this._router.navigate(['']);
+                    } else {
+                        alert('Database Error');
+                    }
+                },
+                (err) => {
+                    console.log(err);
                 }
             );
     }
 }
-

@@ -5,17 +5,17 @@
 
     <div class="form-group">
       <label for="name" class="label">Name</label>
-      <input type="text" class="input" name="name" [(ngModel)]="selectedAnimal.name">
+      <input type="text" class="input" name="name" [(ngModel)]="name">
     </div>
 
     <div class="form-group">
       <label for="species" class="label">Species</label>
-      <input type="text" class="input" name="species" [(ngModel)]="selectedAnimal.species">
+      <input type="text" class="input" name="species" [(ngModel)]="species">
     </div>
 
     <div class="form-group">
       <label for="id" class="label">Image Url</label>
-      <input type="text" class="input" name="imageUrl" [(ngModel)]="selectedAnimal.imageUrl">
+      <input type="text" class="input" name="imageUrl" [(ngModel)]="imageUrl">
     </div>
 
     <button type="submit" class="button update-button" (click)="this.updateAnimal()">Update</button>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 
@@ -22,21 +23,30 @@ export class EditAnimalComponent implements OnInit {
   public selectedAnimal: Animal;
   private animals: Array<Animal>;
   private animalsSubscription;
+  public name: string;
+  public species: string;
+  public imageUrl: string;
 
   ngOnInit() {
     this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {
       this.animals = animals;
     });
-    this.getAnimal();
+
+    const animalId = +this._route.snapshot.paramMap.get('id');
+    this.selectedAnimal = this.getAnimal(animalId);
+
+    this.name = this.selectedAnimal.name;
+    this.species = this.selectedAnimal.species;
+    this.imageUrl = this.selectedAnimal.imageUrl;
   }
 
-  private getAnimal(): void {
-    const id: number = +this._route.snapshot.paramMap.get('id');
-    this.selectedAnimal = this.animals.find(animal => animal.id === id);
+  private getAnimal(id: number): Animal {
+    return this.animals.find(animal => animal.id === id);
   }
 
   private updateAnimal(): void {
-    this._animalActions.updateAnimal(this.selectedAnimal);
+    const updatedAnimalData: Animal = { id: this.selectedAnimal.id, name: this.name, species: this.species, imageUrl: this.imageUrl };
+    this._animalActions.updateAnimal(updatedAnimalData);
   }
 
 }
