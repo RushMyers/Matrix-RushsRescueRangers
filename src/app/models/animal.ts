@@ -3,4 +3,8 @@ export class Animal {
     name: string;
     species: string;
     imageUrl: string;
+    gender?: string;
+    description?: string;
+    isAdopted?: boolean;
+    shelterId?: number;
 }

@@ -6,7 +6,6 @@
 }
 .animal-detail-card {
     width: 50%;
-    height: 24em;
     box-shadow: 0 4px 4px 0  #08090A;
     border-radius: 5px;
     background-color: white;
@@ -16,10 +15,6 @@
     margin-left: auto;
     margin-right:auto;
     padding:18px;
-}
-
-.animal-detail-card .button {
-    margin-top: 200px;
 }
 
 .container img {
