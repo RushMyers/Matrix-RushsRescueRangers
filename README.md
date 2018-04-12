@@ -10,6 +10,9 @@
 6. View Tasks (Outstanding Tasks)
 7. View Activity Log (Completed Tasks)
 
+## ERDs
+
+I'll be using Lucidchart to help me to keep track of my data and envision how I'm setting up my models. [Here](https://www.lucidchart.com/documents/view/d0546c4f-55ec-4c3d-8d1c-4e693fab5ece/0) is a link to my progress on Lucidchart.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 

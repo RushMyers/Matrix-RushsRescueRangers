@@ -25,20 +25,29 @@ body {
     width: 1170px;
   }
 }
+@media (max-width: 840px) {
+    .first-letter {
+        font-size: 2rem !important;
+    }
+    .heading {
+        font-size: 2rem !important;
+        line-height: inherit !important;
+    }
+}
 .heading {
+    display: inline-block;
     font-family: 'Rammetto One', cursive;
     font-style: italic;
     font-size: 3rem;
     color: #D0452D;
     text-shadow: 5px 5px 5px #08090A;
-    text-align: center;
+    line-height: 20px;
 }
 .header {
-    background-color: #7049AD;
-    height: 6em;
-    box-shadow: 0 4px 4px 0 #08090A;
+    background-color: #381D2A;
     vertical-align: middle;
-    border-radius: 5px;
+    width: 100%;
+    text-align: center;
 }
 .first-letter {
     font-size: 4rem;

@@ -14,9 +14,18 @@ export class MockAnimalInterceptor implements HttpInterceptor {
     ) { }
 
     private allAnimals: Array<Animal> = [
-        { id: 1, name: 'Fluffy', species: 'Dog', imageUrl: 'https://i.imgur.com/eZwTsb6.jpg' },
-        { id: 2, name: 'Pickles', species: 'Cat', imageUrl: 'https://i.imgur.com/zItMO7k.jpg' },
-        { id: 3, name: 'Trigger', species: 'Horse', imageUrl: 'https://i.imgur.com/I7gvJ42.jpg' },
+        {
+            id: 1, name: 'Fluffy', species: 'Dog', imageUrl: 'https://i.imgur.com/eZwTsb6.jpg',
+            gender: 'Male', description: 'Quis nostrum exercitationem ullam corporis suscipit laboriosam cosmos shores.'
+        },
+        {
+            id: 2, name: 'Pickles', species: 'Cat', imageUrl: 'https://i.imgur.com/zItMO7k.jpg', gender: 'Male',
+            description: 'Realm of the galaxies extraordinary claims require extraordinary evidence tingling of the spine inconspicuous'
+        },
+        {
+            id: 3, name: 'Trigger', species: 'Horse', imageUrl: 'https://i.imgur.com/I7gvJ42.jpg', gender: 'Female',
+            description: 'motes of rock and gas'
+        },
         { id: 4, name: 'Chorky', species: 'Pig', imageUrl: 'https://i.imgur.com/qJ30HYJ.jpg' },
         { id: 5, name: 'Brenda', species: 'Dog', imageUrl: 'https://i.imgur.com/nTt8wvq.jpg' },
         { id: 6, name: 'Henry', species: 'Dog', imageUrl: 'https://i.imgur.com/5V21pDS.jpg' },

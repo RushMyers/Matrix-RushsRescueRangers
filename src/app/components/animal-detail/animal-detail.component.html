@@ -7,9 +7,11 @@
       <hr>
     </h2>
     <h4>{{ selectedAnimal.species }}</h4>
+    <h4>{{ selectedAnimal.gender }}</h4>
+    <p>{{ selectedAnimal.description }}</p>
 
-    <button class="button" (click)="deleteAnimal()">Delete</button>
     <button class="button edit-animal" (click)="editAnimal()">Edit</button>
+    <button class="button delete-animal" (click)="deleteAnimal()">Delete</button>
 
   </div>
 
