@@ -9,16 +9,14 @@ nav {
     background-color: #7B5AB1;
     border-radius: 3px;
 }
-.navbar-container {
-    margin-top: 4px;
-}
+
 .navbar-link {
     text-decoration: none;
     color: white;
     height: 30px;
     padding: 15px 15px;
     font-size: 18px;
-    line-height: 20px;
+    float: right;
 }
 .navbar-link:hover {
 
