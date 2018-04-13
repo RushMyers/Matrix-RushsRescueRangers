@@ -35,12 +35,18 @@ export class AnimalDetailComponent implements OnInit {
     this.selectedAnimal = this.animals.find(animal => animal.id === id);
   }
 
+  public adoptAnimal(): void {
+    this._router.navigate([`animals/${this.selectedAnimal.id}/adoptions/new`]);
+  }
+
   public editAnimal(): void {
     this._router.navigate([`animals/${this.selectedAnimal.id}/edit`]);
   }
+
   public deleteAnimal(): void {
     this._animalActions.deleteAnimal(this.selectedAnimal);
   }
+
   public showAllAnimals(): void {
     this._router.navigate(['']);
   }

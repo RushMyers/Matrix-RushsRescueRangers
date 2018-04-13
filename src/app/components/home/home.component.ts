@@ -4,7 +4,6 @@ import { Store } from '@ngrx/store';
 import { Animal } from '../../models/animal';
 
 @Component({
-    moduleId: module.id,
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']
