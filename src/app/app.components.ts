@@ -6,6 +6,7 @@ import { EditAnimalComponent } from './components/edit-animal/edit-animal.compon
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NewAdopterModalComponent } from './components/modals/new-adopter-modal/new-adopter-modal.component';
 import { NewAnimalComponent } from './components/new-animal/new-animal.component';
 
 export const APP_COMPONENTS = [
@@ -17,5 +18,6 @@ export const APP_COMPONENTS = [
     HeaderComponent,
     HomeComponent,
     NavbarComponent,
+    NewAdopterModalComponent,
     NewAnimalComponent
 ];

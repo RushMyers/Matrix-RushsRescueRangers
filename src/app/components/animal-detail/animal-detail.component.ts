@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { Animal } from '../../models/animal';
 import { AnimalActions } from '../../actionHandlers/animal.actions';
+import { AppStateActions } from '../../actionHandlers/appState.actions';
 
 @Component({
   selector: 'app-animal-detail',
@@ -16,17 +17,25 @@ export class AnimalDetailComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private _store: Store<any>,
-    private _animalActions: AnimalActions
+    private _animalActions: AnimalActions,
+    private _appStateActions: AppStateActions
   ) { }
 
   public selectedAnimal: Animal;
   private animals: Array<Animal>;
+  public isNewAdopterModalVisible: boolean = false;
   private animalsSubscription;
+  private appStateSubscription;
 
   ngOnInit() {
     this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {
       this.animals = animals;
     });
+
+    this.appStateSubscription = this._store.select('appState').subscribe((appState) => {
+      this.isNewAdopterModalVisible = appState['modal.isNewAdopterModalShown'];
+    });
+
     this.getAnimal();
   }
 
@@ -49,5 +58,13 @@ export class AnimalDetailComponent implements OnInit {
 
   public showAllAnimals(): void {
     this._router.navigate(['']);
+  }
+
+  public showNewAdopterModal(): void {
+    this._appStateActions.updateState({ 'modal.isNewAdopterModalShown': true });
+  }
+
+  public hideNewAdopterModal(): void {
+    this._appStateActions.updateState({ 'modal.isNewAdopterModalShown': false });
   }
 }

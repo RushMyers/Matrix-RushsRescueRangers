@@ -4,7 +4,7 @@
   <div class="animal-detail-card clearfix">
     <h2>
       <b>{{ selectedAnimal.name }}</b>
-      <button class="button adopt-button" (click)="adoptAnimal()">Adopt</button>
+      <button class="button adopt-button" (click)="showNewAdopterModal()">Adopt</button>
       <hr>
     </h2>
     <h4>{{ selectedAnimal.species }}</h4>
@@ -19,3 +19,5 @@
   <button class="button" (click)="showAllAnimals()">back to animals</button>
 
 </div>
+
+<app-new-adopter-modal *ngIf="isNewAdopterModalVisible" (onCancel)="hideNewAdopterModal()" (onOk)="createAdopter()"></app-new-adopter-modal>

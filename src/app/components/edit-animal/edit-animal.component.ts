@@ -26,6 +26,7 @@ export class EditAnimalComponent implements OnInit {
   public name: string;
   public species: string;
   public imageUrl: string;
+  public description: string;
 
   ngOnInit() {
     this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {
@@ -38,6 +39,7 @@ export class EditAnimalComponent implements OnInit {
     this.name = this.selectedAnimal.name;
     this.species = this.selectedAnimal.species;
     this.imageUrl = this.selectedAnimal.imageUrl;
+    this.description = this.selectedAnimal.description;
   }
 
   private getAnimal(id: number): Animal {
@@ -45,7 +47,10 @@ export class EditAnimalComponent implements OnInit {
   }
 
   private updateAnimal(): void {
-    const updatedAnimalData: Animal = { id: this.selectedAnimal.id, name: this.name, species: this.species, imageUrl: this.imageUrl };
+    const updatedAnimalData: Animal = {
+      id: this.selectedAnimal.id, name: this.name, species: this.species,
+      imageUrl: this.imageUrl, description: this.description
+    };
     this._animalActions.updateAnimal(updatedAnimalData);
   }
 
