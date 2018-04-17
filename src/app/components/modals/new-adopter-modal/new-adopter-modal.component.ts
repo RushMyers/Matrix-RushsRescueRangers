@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Input } from '@angular/core';
 
 import { Adopter } from '../../../models/adopter';
+import { Animal } from '../../../models/animal';
 import { AdopterActions } from '../../../actionHandlers/adopter.actions';
 import { AppStateActions } from '../../../actionHandlers/appState.actions';
 
@@ -12,10 +13,9 @@ import { AppStateActions } from '../../../actionHandlers/appState.actions';
 
 export class NewAdopterModalComponent implements OnInit {
 
+  @Input() animal;
   public newAdopter: Adopter = new Adopter();
-
-  @Input() public onOk = new EventEmitter();
-  @Input() public onCancel = new EventEmitter();
+  public currentAnimal: Animal;
 
   constructor(
     private _adopterActions: AdopterActions,
@@ -23,11 +23,12 @@ export class NewAdopterModalComponent implements OnInit {
   ) { }
 
   public createAdopter(): void {
-    this._adopterActions.createAdopter(this.newAdopter);
+    this._adopterActions.createAdopter(this.currentAnimal, this.newAdopter);
     this.closeModal();
   }
 
   ngOnInit() {
+    this.currentAnimal = this.animal;
   }
 
   public closeModal() {

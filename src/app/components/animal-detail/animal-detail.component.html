@@ -20,4 +20,4 @@
 
 </div>
 
-<app-new-adopter-modal *ngIf="isNewAdopterModalVisible" (onCancel)="hideNewAdopterModal()" (onOk)="createAdopter()"></app-new-adopter-modal>
+<app-new-adopter-modal *ngIf="isNewAdopterModalVisible" [animal]="selectedAnimal"></app-new-adopter-modal>

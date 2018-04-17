@@ -4,22 +4,26 @@ import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
 import { Adopter } from '../models/adopter';
+import { AdoptionActions } from '../actionHandlers/adoption.actions';
+import { Animal } from '../models/animal';
 import * as Constants from '../constants/constants';
 import { UPDATE_ADOPTERS, ADD_ADOPTER, CLEAR_ADOPTERS, EDIT_ADOPTER, DELETE_ADOPTER } from '../stores/adopters.store';
 
 @Injectable()
 export class AdopterActions {
     constructor(
+        private _adoptionActions: AdoptionActions,
         private _http: HttpClient,
         private _router: Router,
         private _store: Store<any>
     ) { }
 
-    public createAdopter(adopter: Adopter): void {
+    public createAdopter(animal: Animal, adopter: Adopter): void {
         this._http.post<Adopter>(`${Constants.ApiBaseUrl}/adopters/new`, adopter)
             .subscribe(
                 (res) => {
                     this._store.dispatch({ type: ADD_ADOPTER, payload: res });
+                    this.createAdoption(animal, adopter);
                     this._router.navigate(['']);
                 },
                 (err) => {
@@ -55,5 +59,8 @@ export class AdopterActions {
                     console.log(err);
                 }
             );
+    }
+    public createAdoption(animal: Animal, adopter: Adopter) {
+        this._adoptionActions.createAdoption(animal, adopter);
     }
 }
