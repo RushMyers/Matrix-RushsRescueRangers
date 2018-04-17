@@ -21,6 +21,9 @@ export class AdopterActions {
                 (res) => {
                     this._store.dispatch({ type: ADD_ADOPTER, payload: res });
                     this._router.navigate(['']);
+                },
+                (err) => {
+                    console.log(err);
                 }
             );
     }
@@ -28,6 +31,7 @@ export class AdopterActions {
         this._http.put<Adopter>(`${Constants.ApiBaseUrl}/adopters/${adopterInfo.id}/edit`, adopterInfo)
             .subscribe(
                 (res) => {
+                    console.log(res);
                     this._store.dispatch({ type: EDIT_ADOPTER, payload: res });
                     this._router.navigate(['']);
                 },

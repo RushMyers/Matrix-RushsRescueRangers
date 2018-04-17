@@ -14,19 +14,41 @@
     width: auto;
     background-color: white;
 }
-
+form {
+    padding: 30px;
+}
 form .form-group {
     display: flex;
     justify-content: space-between;
     padding: 20px 60px 20px 60px;
 }
 form .input {
-    width: 75%;
+    width: 70%;
     height: 20px;
     border: 1px solid #E4DCDD;
     border-radius: 4px;
 }
+
 hr {
     border: 0;
     border-top: 1px solid #eee;
+}
+.form .button {
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #FFD275;
+    margin-bottom: 16px;
+}
+.new-adopter-button {
+    float: right;
+}
+cancel-adoption-button {
+    float: left;
 }

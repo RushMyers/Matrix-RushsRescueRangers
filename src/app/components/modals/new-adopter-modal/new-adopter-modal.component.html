@@ -42,6 +42,10 @@
           <input type="text" class="input" [(ngModel)]="newAdopter.phoneNo" name="phoneNo">
         </div>
 
+
+        <button class="cancel-adoption-button button" (click)="closeModal()">Cancel</button>
+        <button class="new-adopter-button button" (click)="createAdopter()">Submit</button>
+
       </form>
 
     </div>

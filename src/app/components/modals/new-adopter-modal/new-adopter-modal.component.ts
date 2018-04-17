@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Input } from '@angular/core';
 
 import { Adopter } from '../../../models/adopter';
 import { AdopterActions } from '../../../actionHandlers/adopter.actions';
+import { AppStateActions } from '../../../actionHandlers/appState.actions';
 
 @Component({
   selector: 'app-new-adopter-modal',
@@ -17,19 +18,19 @@ export class NewAdopterModalComponent implements OnInit {
   @Input() public onCancel = new EventEmitter();
 
   constructor(
-    private _adopterActions: AdopterActions
+    private _adopterActions: AdopterActions,
+    private _appStateActions: AppStateActions
   ) { }
 
   public createAdopter(): void {
     this._adopterActions.createAdopter(this.newAdopter);
+    this.closeModal();
   }
 
   ngOnInit() {
   }
-  public ok() {
-    this.onOk.emit();
-  }
-  public cancel() {
-    this.onCancel.emit('');
+
+  public closeModal() {
+    this._appStateActions.updateState({ 'modal.isNewAdopterModalShown': false });
   }
 }

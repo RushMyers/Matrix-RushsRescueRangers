@@ -23,6 +23,7 @@ export class MockAdopterInterceptor implements HttpInterceptor {
             });
             return Observable.of(response);
         }
+
         if (req.method === 'PUT' && req.url === `${Constants.ApiBaseUrl}/adopters/${req.body.id}/edit`) {
             const updatedAdopter: Adopter = req.body;
             const response = new HttpResponse({
@@ -30,6 +31,7 @@ export class MockAdopterInterceptor implements HttpInterceptor {
             });
             return Observable.of(response);
         }
+
         if (req.method === 'DELETE' && req.url.substring(0, Constants.ApiBaseUrl.length + 9)) {
             const currentAdopters: Array<Adopter> = this.getCurrentAdopters();
             const adopterId: number = +req.url.substring(Constants.ApiBaseUrl.length + 9);

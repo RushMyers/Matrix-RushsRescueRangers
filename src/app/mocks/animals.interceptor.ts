@@ -33,6 +33,7 @@ export class MockAnimalInterceptor implements HttpInterceptor {
     ];
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
         if (req.method === 'GET' && req.url === `${Constants.ApiBaseUrl}/animals`) {
             const allAnimalsResponse = this.getAllAnimals();
             const response = new HttpResponse({
@@ -48,6 +49,7 @@ export class MockAnimalInterceptor implements HttpInterceptor {
             });
             return Observable.of(response);
         }
+
         if (req.method === 'PUT' && req.url === `${Constants.ApiBaseUrl}/animals/${req.body.id}/edit`) {
             const updatedAnimal: Animal = req.body;
             const response = new HttpResponse({
@@ -55,6 +57,7 @@ export class MockAnimalInterceptor implements HttpInterceptor {
             });
             return Observable.of(response);
         }
+
         if (req.method === 'DELETE' && req.url.substring(0, Constants.ApiBaseUrl.length + 9)) {
             const currentAnimals: Array<Animal> = this.getCurrentAnimals();
             const animalId: number = +req.url.substring(Constants.ApiBaseUrl.length + 9);
