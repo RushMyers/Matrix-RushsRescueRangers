@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 import { Adopter } from '../models/adopter';
 import { AdoptionActions } from '../actionHandlers/adoption.actions';
 import { Animal } from '../models/animal';
-import * as Constants from '../constants/constants';
 import { UPDATE_ADOPTERS, ADD_ADOPTER, CLEAR_ADOPTERS, EDIT_ADOPTER, DELETE_ADOPTER } from '../stores/adopters.store';
+import * as Constants from '../constants/constants';
 
 @Injectable()
 export class AdopterActions {
@@ -31,7 +31,7 @@ export class AdopterActions {
                 }
             );
     }
-    public updateAdopter(adopterInfo): void {
+    public updateAdopter(adopterInfo: Adopter): void {
         this._http.put<Adopter>(`${Constants.ApiBaseUrl}/adopters/${adopterInfo.id}/edit`, adopterInfo)
             .subscribe(
                 (res) => {

@@ -31,7 +31,7 @@ export class NewAdopterModalComponent implements OnInit {
     this.currentAnimal = this.animal;
   }
 
-  public closeModal() {
+  public closeModal(): void {
     this._appStateActions.updateState({ 'modal.isNewAdopterModalShown': false });
   }
 }
