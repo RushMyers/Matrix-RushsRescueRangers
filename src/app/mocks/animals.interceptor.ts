@@ -42,8 +42,8 @@ export class MockAnimalInterceptor implements HttpInterceptor {
             return Observable.of(response);
         }
 
-        if (req.method === 'POST' && req.url === `${Constants.ApiBaseUrl}/animals/new`) {
-            const newAnimal: Animal = req.body;
+        if (req.method === 'POST' && req.url === `${Constants.ApiBaseUrl}/animals`) {
+            const newAnimal: Animal = { ...req.body, id: this.allAnimals.length + 1 };
             const response = new HttpResponse({
                 body: newAnimal
             });

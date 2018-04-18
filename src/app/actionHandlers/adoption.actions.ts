@@ -17,7 +17,7 @@ export class AdoptionActions {
     ) { }
 
     public createAdoption(animal: Animal, adopter: Adopter): void {
-        this._http.post<Adopter>(`${Constants.ApiBaseUrl}/adoptions/new`, { animal, adopter })
+        this._http.post<Adopter>(`${Constants.ApiBaseUrl}/adoptions`, { animal, adopter })
             .subscribe(
                 (res) => {
                     this._store.dispatch({ type: ADD_ADOPTION, payload: res });

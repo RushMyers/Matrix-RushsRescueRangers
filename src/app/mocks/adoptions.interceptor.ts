@@ -18,7 +18,7 @@ export class MockAdoptionIntercepter implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        if (req.method === 'POST' && req.url === `${Constants.ApiBaseUrl}/adoptions/new`) {
+        if (req.method === 'POST' && req.url === `${Constants.ApiBaseUrl}/adoptions`) {
 
             const today = new Date;
             const newAdoption: Adoption = {

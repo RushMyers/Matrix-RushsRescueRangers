@@ -20,7 +20,7 @@ export class AdopterActions {
 
     public createAdopter(animal: Animal, adopter: Adopter): void {
 
-        this._http.post<Adopter>(`${Constants.ApiBaseUrl}/adopters/new`, adopter)
+        this._http.post<Adopter>(`${Constants.ApiBaseUrl}/adopters`, adopter)
             .subscribe(
                 (res) => {
                     this._store.dispatch({ type: ADD_ADOPTER, payload: res });

@@ -28,8 +28,9 @@ export class AnimalActions {
                 }
             );
     }
+
     public createAnimal(animal: Animal): void {
-        this._http.post<Animal>(`${Constants.ApiBaseUrl}/animals/new`, animal)
+        this._http.post<Animal>(`${Constants.ApiBaseUrl}/animals`, animal)
             .subscribe(
                 (res) => {
                     this._store.dispatch({ type: ADD_ANIMAL, payload: res });

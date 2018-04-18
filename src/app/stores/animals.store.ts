@@ -48,12 +48,8 @@ export function animals(state: State = [], action: Actions): State {
             return [];
 
         case ADD_ANIMAL:
-            const animalIds = state.map((animal: Animal): number => animal.id).sort();
-            const newId: number = animalIds[animalIds.length - 1] + 1;
-            const newAnimal: Animal = {
-                ...action.payload,
-                id: newId
-            };
+
+            const newAnimal: Animal = action.payload;
 
             return [...state, newAnimal];
 

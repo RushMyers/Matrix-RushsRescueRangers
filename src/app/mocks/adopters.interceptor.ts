@@ -17,7 +17,7 @@ export class MockAdopterInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
 
-        if (req.method === 'POST' && req.url === `${Constants.ApiBaseUrl}/adopters/new`) {
+        if (req.method === 'POST' && req.url === `${Constants.ApiBaseUrl}/adopters`) {
 
             const newAdopter: Adopter = {
                 ...req.body,
