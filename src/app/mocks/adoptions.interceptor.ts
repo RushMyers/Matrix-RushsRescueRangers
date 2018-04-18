@@ -5,31 +5,37 @@ import 'rxjs/add/observable/of';
 
 import * as Constants from '../constants/constants';
 import { Adopter } from '../models/adopter';
-
+import { Animal } from '../models/animal';
+import { Adoption } from '../models/adoption';
 
 @Injectable()
-export class MockAdopterInterceptor implements HttpInterceptor {
+export class MockAdoptionIntercepter implements HttpInterceptor {
     constructor(
+
     ) { }
 
-    private allAdopters: Array<Adopter> = [];
+    private allAdoptions: Array<Adoption> = [];
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+        if (req.method === 'POST' && req.url === `${Constants.ApiBaseUrl}/adoptions/new`) {
 
-        if (req.method === 'POST' && req.url === `${Constants.ApiBaseUrl}/adopters/new`) {
-
-            const newAdopter: Adopter = {
-                ...req.body,
-                id: this.allAdopters.length + 1
+            const today = new Date;
+            const newAdoption: Adoption = {
+                id: this.allAdoptions.length + 1,
+                adopterId: req.body.adopter.id,
+                animalId: req.body.animal.id,
+                date: today
             };
-            this.allAdopters.push(newAdopter);
+            this.allAdoptions.push(newAdoption);
             const response = new HttpResponse({
-                body: newAdopter
+                body: newAdoption
             });
             return Observable.of(response);
         }
 
         return next.handle(req);
     }
+
+
 }

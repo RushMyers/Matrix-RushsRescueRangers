@@ -43,18 +43,13 @@ export function adopters(state: State = [], action: Actions): State {
             return action.payload;
 
         case ADD_ADOPTER:
-            const adopterIds = state.map((adopter: Adopter): number => adopter.id).sort();
-            const newId: number = adopterIds[adopterIds.length - 1] + 1;
-            const newAdopter: Adopter = {
-                ...action.payload,
-                id: newId
-            };
+            const newAdopter: Adopter = action.payload;
             return [...state, newAdopter];
 
         case EDIT_ADOPTER:
             newState = makeClone(state);
-            const animalIndex = newState.findIndex(animal => animal.id === action.payload.id);
-            newState[animalIndex] = action.payload;
+            const adopterIndex = newState.findIndex(adopter => adopter.id === action.payload.id);
+            newState[adopterIndex] = action.payload;
             return newState;
 
         default:

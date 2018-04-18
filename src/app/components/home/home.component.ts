@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     private animalsSubscription: any;
 
     constructor(
-        private _store: Store<any>
+        private _store: Store<any>,
     ) { }
 
     ngOnInit() {
@@ -22,4 +22,5 @@ export class HomeComponent implements OnInit {
             this.animals = animals;
         });
     }
+
 }

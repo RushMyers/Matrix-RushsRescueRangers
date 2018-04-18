@@ -19,11 +19,13 @@ export class AdopterActions {
     ) { }
 
     public createAdopter(animal: Animal, adopter: Adopter): void {
+
         this._http.post<Adopter>(`${Constants.ApiBaseUrl}/adopters/new`, adopter)
             .subscribe(
                 (res) => {
                     this._store.dispatch({ type: ADD_ADOPTER, payload: res });
-                    this.createAdoption(animal, adopter);
+                    console.log(res);
+                    this.createAdoption(animal, res);
                     this._router.navigate(['']);
                 },
                 (err) => {
@@ -31,6 +33,7 @@ export class AdopterActions {
                 }
             );
     }
+
     public updateAdopter(adopterInfo: Adopter): void {
         this._http.put<Adopter>(`${Constants.ApiBaseUrl}/adopters/${adopterInfo.id}/edit`, adopterInfo)
             .subscribe(

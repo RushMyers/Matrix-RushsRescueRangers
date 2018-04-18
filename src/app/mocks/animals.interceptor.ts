@@ -13,7 +13,7 @@ export class MockAnimalInterceptor implements HttpInterceptor {
         private _store: Store<any>,
     ) { }
 
-    private allAnimals: Array<Animal> = [
+    public allAnimals: Array<Animal> = [
         {
             id: 1, name: 'Fluffy', species: 'Dog', imageUrl: 'https://i.imgur.com/eZwTsb6.jpg',
             gender: 'Male', description: 'Quis nostrum exercitationem ullam corporis suscipit laboriosam cosmos shores.'
@@ -47,6 +47,7 @@ export class MockAnimalInterceptor implements HttpInterceptor {
             const response = new HttpResponse({
                 body: newAnimal
             });
+            this.allAnimals.push(newAnimal);
             return Observable.of(response);
         }
 

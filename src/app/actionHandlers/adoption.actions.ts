@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { Adopter } from '../models/adopter';
 import { Animal } from '../models/animal';
+import { ADD_ADOPTION } from '../stores/adoptions.store';
 import * as Constants from '../constants/constants';
 
 @Injectable()
@@ -15,11 +16,11 @@ export class AdoptionActions {
         private _store: Store<any>
     ) { }
 
-    public createAdoption(animal: Animal, adopter: Adopter) {
-        this._http.post<Adopter>(`${Constants.ApiBaseUrl}/adoptions/new`, animal, adopter)
+    public createAdoption(animal: Animal, adopter: Adopter): void {
+        this._http.post<Adopter>(`${Constants.ApiBaseUrl}/adoptions/new`, { animal, adopter })
             .subscribe(
                 (res) => {
-                    // this._store.dispatch({ type: ADD_ADOPTION, payload: res });
+                    this._store.dispatch({ type: ADD_ADOPTION, payload: res });
 
                     this._router.navigate(['']);
                 },

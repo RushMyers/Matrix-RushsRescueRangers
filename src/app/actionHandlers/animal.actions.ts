@@ -4,8 +4,8 @@ import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
 import { Animal } from '../models/animal';
-import * as Constants from '../constants/constants';
 import { UPDATE_ANIMALS, ADD_ANIMAL, EDIT_ANIMAL, DELETE_ANIMAL } from '../stores/animals.store';
+import * as Constants from '../constants/constants';
 
 @Injectable()
 export class AnimalActions {
@@ -23,7 +23,7 @@ export class AnimalActions {
                 (res) => {
                     this._store.dispatch({ type: UPDATE_ANIMALS, payload: res });
                 },
-                (err) => {
+                (err: HttpErrorResponse) => {
                     console.log(err);
                 }
             );

@@ -31,7 +31,8 @@ import { environment } from '../environments/environment';
   ],
   providers: [
     ...APP_ACTIONS,
-    ...(environment.useMocking ? APP_MOCK_INTERCEPTORS : [])
+    ...(environment.useMocking ? APP_MOCK_INTERCEPTORS : []),
+    // ...APP_MOCK_INTERCEPTORS
   ],
   bootstrap: [AppComponent]
 })
