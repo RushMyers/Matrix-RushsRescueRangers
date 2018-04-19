@@ -56,6 +56,7 @@ export function animals(state: State = [], action: Actions): State {
         case EDIT_ANIMAL:
             newState = makeClone(state);
             const animalIndex = newState.findIndex(animal => animal.id === action.payload.id);
+
             newState[animalIndex] = action.payload;
             return newState;
 

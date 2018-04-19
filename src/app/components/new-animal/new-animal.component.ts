@@ -12,6 +12,7 @@ import { AnimalActions } from '../../actionHandlers/animal.actions';
 export class NewAnimalComponent implements OnInit {
 
   public newAnimal: Animal = new Animal();
+  public sexes = ['M', 'F'];
 
   constructor(
     private _animalActions: AnimalActions
