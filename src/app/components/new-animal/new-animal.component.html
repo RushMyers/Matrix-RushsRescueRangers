@@ -1,7 +1,7 @@
 <div class="container">
   <h3>Register a New Animal</h3>
 
-  <form class="form clearfix ">
+  <form onSubmit="createAnimal()" class="form clearfix ">
 
     <div class="form-group ">
       <label for="name ">Name</label>
@@ -18,7 +18,7 @@
       <input type="text " class="input " [(ngModel)]="newAnimal.imageUrl " name="imageUrl ">
     </div>
 
-    <button (click)="createAnimal() " type="submit " class="new-animal-button">Submit</button>
+    <button type="button" (click)="createAnimal() " class="new-animal-button">Submit</button>
 
   </form>
 
