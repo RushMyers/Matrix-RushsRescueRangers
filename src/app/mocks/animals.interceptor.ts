@@ -6,6 +6,7 @@ import 'rxjs/add/observable/of';
 import * as Constants from '../constants/constants';
 import { Animal } from '../models/animal';
 import { Store } from '@ngrx/store';
+import { makeClone } from '../helpers/utilities';
 
 @Injectable()
 export class MockAnimalInterceptor implements HttpInterceptor {
@@ -35,7 +36,7 @@ export class MockAnimalInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         if (req.method === 'GET' && req.url === `${Constants.ApiBaseUrl}/animals`) {
-            const allAnimalsResponse = this.getAllAnimals();
+            const allAnimalsResponse = makeClone(this.getAllAnimals());
             const response = new HttpResponse({
                 body: allAnimalsResponse
             });
@@ -43,10 +44,14 @@ export class MockAnimalInterceptor implements HttpInterceptor {
         }
 
         if (req.method === 'POST' && req.url === `${Constants.ApiBaseUrl}/animals`) {
-            const newAnimal: Animal = { ...req.body, id: this.allAnimals.length + 1 };
+            const newAnimal: Animal = {
+                ...req.body,
+                id: this.allAnimals.length + 1
+            };
             const response = new HttpResponse({
                 body: newAnimal
             });
+
             this.allAnimals.push(newAnimal);
             return Observable.of(response);
         }
