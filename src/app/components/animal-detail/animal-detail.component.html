@@ -8,8 +8,10 @@
       <hr>
     </h2>
     <h4>{{ selectedAnimal.species }}</h4>
-    <h4>{{ selectedAnimal.gender }}</h4>
-    <p>{{ selectedAnimal.description }}</p>
+    <h4>Sex: {{ selectedAnimal.gender }}</h4>
+    <p>
+      <i>{{ selectedAnimal.description }}</i>
+    </p>
 
     <button class="button edit-animal" (click)="editAnimal()">Edit</button>
     <button class="button delete-animal" (click)="deleteAnimal()">Delete</button>

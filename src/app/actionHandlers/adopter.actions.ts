@@ -61,7 +61,7 @@ export class AdopterActions {
                 }
             );
     }
-    public createAdoption(animal: Animal, adopter: Adopter) {
+    private createAdoption(animal: Animal, adopter: Adopter) {
         this._adoptionActions.createAdoption(animal, adopter);
     }
 }

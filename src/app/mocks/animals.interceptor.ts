@@ -17,14 +17,14 @@ export class MockAnimalInterceptor implements HttpInterceptor {
     public allAnimals: Array<Animal> = [
         {
             id: 1, name: 'Fluffy', species: 'Dog', imageUrl: 'https://i.imgur.com/eZwTsb6.jpg',
-            gender: 'Male', description: 'Quis nostrum exercitationem ullam corporis suscipit laboriosam cosmos shores.'
+            gender: 'M', description: 'Quis nostrum exercitationem ullam corporis suscipit laboriosam cosmos shores.'
         },
         {
-            id: 2, name: 'Pickles', species: 'Cat', imageUrl: 'https://i.imgur.com/zItMO7k.jpg', gender: 'Male',
+            id: 2, name: 'Pickles', species: 'Cat', imageUrl: 'https://i.imgur.com/zItMO7k.jpg', gender: 'M',
             description: 'Realm of the galaxies extraordinary claims require extraordinary evidence tingling of the spine inconspicuous'
         },
         {
-            id: 3, name: 'Trigger', species: 'Horse', imageUrl: 'https://i.imgur.com/I7gvJ42.jpg', gender: 'Female',
+            id: 3, name: 'Trigger', species: 'Horse', imageUrl: 'https://i.imgur.com/I7gvJ42.jpg', gender: 'F',
             description: 'motes of rock and gas'
         },
         { id: 4, name: 'Chorky', species: 'Pig', imageUrl: 'https://i.imgur.com/qJ30HYJ.jpg' },

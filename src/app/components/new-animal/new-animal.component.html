@@ -1,24 +1,31 @@
 <div class="container">
   <h3>Register a New Animal</h3>
 
-  <form onSubmit="createAnimal()" class="form clearfix ">
+  <form onSubmit="createAnimal()" class="form clearfix">
 
-    <div class="form-group ">
+    <div class="form-group">
       <label for="name ">Name</label>
-      <input type="text " class="input " required [(ngModel)]="newAnimal.name " name="name ">
+      <input type="text " class="input " required [(ngModel)]="newAnimal.name" name="name">
     </div>
 
     <div class="form-group ">
-      <label for="species ">Species</label>
-      <input type="text " class="input " [(ngModel)]="newAnimal.species " name="species ">
+      <label for="species">Species</label>
+      <input type="text " class="input " [(ngModel)]="newAnimal.species" name="species">
+    </div>
+
+    <div class="form-group">
+      <label for="gender">Sex</label>
+      <select class="dropdown-select" [(ngModel)]="newAnimal.gender" name="gender">
+        <option *ngFor="let sex of sexes" [value]="sex">{{sex}}</option>
+      </select>
     </div>
 
     <div class="form-group ">
-      <label for="image-url ">Image-Url</label>
-      <input type="text " class="input " [(ngModel)]="newAnimal.imageUrl " name="imageUrl ">
+      <label for="image-url">Image-Url</label>
+      <input type="text " class="input" [(ngModel)]="newAnimal.imageUrl" name="imageUrl">
     </div>
 
-    <button type="button" (click)="createAnimal() " class="new-animal-button">Submit</button>
+    <button type="button" (click)="createAnimal()" class="new-animal-button">Submit</button>
 
   </form>
 

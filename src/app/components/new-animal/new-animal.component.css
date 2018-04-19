@@ -27,6 +27,13 @@ form .input {
     border-radius: 4px;
 }
 
+.form-group .dropdown-select {
+    border-radius: 4px;
+    margin-right: 70%;
+    border: 1px solid #E4DCDD;
+    height: 20px;
+}
+
 .new-animal-button {
     padding: 6px 12px;
     font-size: 14px;
