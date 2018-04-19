@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Animal } from '../../models/animal';
 import { AnimalActions } from '../../actionHandlers/animal.actions';
+import * as Constants from '../../constants/constants';
 
 @Component({
   selector: 'app-new-animal',
@@ -12,7 +13,6 @@ import { AnimalActions } from '../../actionHandlers/animal.actions';
 export class NewAnimalComponent implements OnInit {
 
   public newAnimal: Animal = new Animal();
-  public sexes = ['M', 'F'];
 
   constructor(
     private _animalActions: AnimalActions
@@ -21,6 +21,8 @@ export class NewAnimalComponent implements OnInit {
   // submitted = false;
 
   // onSubmit() { this.submitted = true; }
+
+  public sexes = Constants.ANIMAL_SEXES;
 
   public createAnimal(): void {
     this._animalActions.createAnimal(this.newAnimal);

@@ -13,6 +13,12 @@ import { AppStateActions } from '../../actionHandlers/appState.actions';
 })
 export class AnimalDetailComponent implements OnInit {
 
+  public selectedAnimal: Animal;
+  private animals: Array<Animal>;
+  public isNewAdopterModalVisible: boolean = false;
+  private animalsSubscription;
+  private appStateSubscription;
+
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
@@ -20,12 +26,6 @@ export class AnimalDetailComponent implements OnInit {
     private _animalActions: AnimalActions,
     private _appStateActions: AppStateActions
   ) { }
-
-  public selectedAnimal: Animal;
-  private animals: Array<Animal>;
-  public isNewAdopterModalVisible: boolean = false;
-  private animalsSubscription;
-  private appStateSubscription;
 
   ngOnInit() {
     this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {

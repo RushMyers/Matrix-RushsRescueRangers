@@ -12,9 +12,14 @@ export class NavbarComponent implements OnInit {
     private _router: Router
   ) { }
 
+  public filters = [{ name: 'Adopted', isAdopted: true }, { name: 'Not Adopted', isAdopted: false }];
+
+  public selectedFilter: object = {};
+
   public newAnimal(): void {
     this._router.navigate(['animals/new']);
   }
+
   ngOnInit() {
   }
 }
