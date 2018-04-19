@@ -20,6 +20,10 @@ export class NavbarComponent implements OnInit {
     this._router.navigate(['animals/new']);
   }
 
+  public onChange(event) {
+    console.log(event);
+  }
+
   ngOnInit() {
   }
 }

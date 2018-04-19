@@ -6,4 +6,3 @@ export const
     REQUEST_TYPE_DELETE = 'DELETE',
 
     ANIMAL_SEXES = ['M', 'F'];
-

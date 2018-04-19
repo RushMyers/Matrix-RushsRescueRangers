@@ -1,9 +1,9 @@
 <nav>
-  <a class="navbar-link" (click)='newAnimal()'>New Animal</a>
   <div class="dropdown">
     <label for="">Filter by:</label>
-    <select [(ngModel)]="selectedFilter" class="dropdown-select" name="">
+    <select [(ngModel)]="selectedFilter" class="dropdown-select" (ngModelChange)="onChange($event)">
       <option *ngFor="let filter of filters" [ngValue]="filter" class="option">{{filter.name}}</option>
     </select>
   </div>
+  <a class="navbar-link" (click)='newAnimal()'>New Animal</a>
 </nav>

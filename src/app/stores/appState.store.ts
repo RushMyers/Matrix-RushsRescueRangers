@@ -2,11 +2,18 @@ import { Action, ActionReducer } from '@ngrx/store';
 import * as Constants from '../constants/constants';
 
 export interface State {
+    // Modals
     'modal.isNewAdopterModalShown': boolean;
+
+    // Filters
+    'filter.isIsAdoptedFilterApplied': boolean;
+    'filter.isNotAdoptedFilterApplied': boolean;
 }
 
 const initialAppState: State = {
-    'modal.isNewAdopterModalShown': false
+    'modal.isNewAdopterModalShown': false,
+    'filter.isIsAdoptedFilterApplied': false,
+    'filter.isNotAdoptedFilterApplied': false
 };
 
 export const UPDATE_APP_STATE = 'UPDATE_APP_STATE';
