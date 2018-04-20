@@ -31,6 +31,7 @@ export class AdoptionActions {
                 }
             );
     }
+
     private updateAdoptedAnimal(animal: Animal) {
         this._animalActions.updateAnimal(
             { ...animal, isAdopted: true }

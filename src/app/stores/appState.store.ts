@@ -11,7 +11,11 @@ export interface State {
 }
 
 const initialAppState: State = {
+
+    // Modals
     'modal.isNewAdopterModalShown': false,
+
+    // Filters
     'filter.isIsAdoptedFilterApplied': false,
     'filter.isNotAdoptedFilterApplied': false
 };

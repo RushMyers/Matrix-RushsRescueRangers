@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { AppStateActions } from '../../actionHandlers/appState.actions';
+import * as Constants from '../../constants/constants';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,11 +12,11 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   constructor(
-    private _router: Router
+    private _router: Router,
+    private _appStateActions: AppStateActions
   ) { }
 
-  public filters = [{ name: 'Adopted', isAdopted: true }, { name: 'Not Adopted', isAdopted: false }];
-
+  public filters = Constants.FILTERS;
   public selectedFilter: object = {};
 
   public newAnimal(): void {
@@ -21,7 +24,9 @@ export class NavbarComponent implements OnInit {
   }
 
   public onChange(event) {
-    console.log(event);
+
+    const filter = event.filter;
+    this._appStateActions.updateState(filter);
   }
 
   ngOnInit() {

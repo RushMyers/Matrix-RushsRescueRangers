@@ -5,4 +5,9 @@ export const
     REQUEST_TYPE_PUT = 'PUT',
     REQUEST_TYPE_DELETE = 'DELETE',
 
-    ANIMAL_SEXES = ['M', 'F'];
+    ANIMAL_SEXES = ['M', 'F'],
+
+    FILTERS = [
+        { name: 'Adopted', filter: { 'filter.isIsAdoptedFilterApplied': true } },
+        { name: 'Not Adopted', filter: { 'filter.isNotAdoptedFilterApplied': true } }
+    ];
