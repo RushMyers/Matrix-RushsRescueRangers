@@ -25,12 +25,12 @@ export class MockAnimalInterceptor implements HttpInterceptor {
         },
         {
             id: 3, name: 'Trigger', species: 'Horse', imageUrl: 'https://i.imgur.com/I7gvJ42.jpg', gender: 'F',
-            description: 'motes of rock and gas'
+            description: 'motes of rock and gas', isAdopted: true
         },
-        { id: 4, name: 'Chorky', species: 'Pig', imageUrl: 'https://i.imgur.com/qJ30HYJ.jpg' },
-        { id: 5, name: 'Brenda', species: 'Dog', imageUrl: 'https://i.imgur.com/nTt8wvq.jpg' },
-        { id: 6, name: 'Henry', species: 'Dog', imageUrl: 'https://i.imgur.com/5V21pDS.jpg' },
-        { id: 7, name: 'Cathy', species: 'Cat', imageUrl: 'https://i.imgur.com/w6TFe5X.jpg' }
+        { id: 4, name: 'Chorky', species: 'Pig', imageUrl: 'https://i.imgur.com/qJ30HYJ.jpg', isAdopted: true },
+        { id: 5, name: 'Brenda', species: 'Dog', imageUrl: 'https://i.imgur.com/nTt8wvq.jpg', isAdopted: true },
+        { id: 6, name: 'Henry', species: 'Dog', imageUrl: 'https://i.imgur.com/5V21pDS.jpg', isAdopted: false },
+        { id: 7, name: 'Cathy', species: 'Cat', imageUrl: 'https://i.imgur.com/w6TFe5X.jpg', isAdopted: true }
     ];
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

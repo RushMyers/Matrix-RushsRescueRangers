@@ -6,8 +6,7 @@ export interface State {
     'modal.isNewAdopterModalShown': boolean;
 
     // Filters
-    'filter.isIsAdoptedFilterApplied': boolean;
-    'filter.isNotAdoptedFilterApplied': boolean;
+    'filter.isAdopted': string;
 }
 
 const initialAppState: State = {
@@ -16,8 +15,7 @@ const initialAppState: State = {
     'modal.isNewAdopterModalShown': false,
 
     // Filters
-    'filter.isIsAdoptedFilterApplied': false,
-    'filter.isNotAdoptedFilterApplied': false
+    'filter.isAdopted': Constants.FILTERS_IS_ADOPTED[0],
 };
 
 export const UPDATE_APP_STATE = 'UPDATE_APP_STATE';

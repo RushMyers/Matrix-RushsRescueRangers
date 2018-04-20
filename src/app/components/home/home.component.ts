@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { Animal } from '../../models/animal';
@@ -10,43 +10,46 @@ import { Animal } from '../../models/animal';
     styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
     public animals: Array<Animal>;
     private animalsSubscription: any;
     private appStoreSubscription: any;
-    private isIsAdoptedFilterApplied: boolean;
-    private isNotAdoptedFilterApplied: boolean;
+    public filteredAnimals: Array<Animal>;
+    private isAdoptedFilter: string;
 
     constructor(
         private _store: Store<any>,
     ) { }
 
-    private filterAnimals(animals): Array<Animal> {
-
-        if (this.isIsAdoptedFilterApplied) {
-            return animals.filter((animal) => {
-                return animal.isAdopted;
-            });
-        }
-
-        if (this.isNotAdoptedFilterApplied) {
-            return animals.filter((animal) => {
-                return animal.isAdopted === false;
-            });
-        }
-        return animals;
-    }
-
-    ngOnInit() {
-        console.log(this.filterAnimals(this.animals));
+    public ngOnInit() {
         this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {
-            this.animals = this.filterAnimals(animals);
+            this.animals = animals;
+            this.filteredAnimals = this.filterAnimals();
         });
 
         this.appStoreSubscription = this._store.select('appState').subscribe((appState) => {
-            this.isIsAdoptedFilterApplied = appState['filter.isIsAdoptedFilterApplied'];
-            this.isNotAdoptedFilterApplied = appState['filter.isNotAdoptedFilterApplied'];
+            this.isAdoptedFilter = appState['filter.isAdopted'];
+            this.filteredAnimals = this.filterAnimals();
         });
+    }
 
+    public ngOnDestroy() {
+        this.animalsSubscription.unsubscribe();
+        this.appStoreSubscription.unsubscribe();
+    }
+
+    private filterAnimals(): Array<Animal> {
+        if (!this.animals) {
+            return [];
+        }
+
+        if (this.isAdoptedFilter === 'All') {
+            return this.animals;
+        }
+
+        const filteredAnimals = this.animals.filter((animal) => {
+            return animal.isAdopted === (this.isAdoptedFilter === 'Adopted' ? true : false);
+        });
+        return filteredAnimals;
     }
 }

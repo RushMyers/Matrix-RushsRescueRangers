@@ -7,7 +7,8 @@ export const
 
     ANIMAL_SEXES = ['M', 'F'],
 
-    FILTERS = [
-        { name: 'Adopted', filter: { 'filter.isIsAdoptedFilterApplied': true } },
-        { name: 'Not Adopted', filter: { 'filter.isNotAdoptedFilterApplied': true } }
+    FILTERS_IS_ADOPTED = [
+        'All',
+        'Adopted',
+        'Not Adopted'
     ];

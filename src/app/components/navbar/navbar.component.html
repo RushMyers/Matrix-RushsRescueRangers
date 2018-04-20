@@ -1,8 +1,8 @@
 <nav>
   <div class="dropdown">
     <label for="">Filter by:</label>
-    <select [(ngModel)]="selectedFilter" class="dropdown-select" (ngModelChange)="onChange($event)">
-      <option *ngFor="let filter of filters" [ngValue]="filter" class="option">{{filter.name}}</option>
+    <select [(ngModel)]="isAdoptedFilter" class="dropdown-select" (ngModelChange)="onChange($event)">
+      <option *ngFor="let filter of filters" [ngValue]="filter" class="option">{{filter}}</option>
     </select>
   </div>
   <a class="navbar-link" (click)='newAnimal()'>New Animal</a>
