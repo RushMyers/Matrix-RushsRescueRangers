@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private animalsSubscription: any;
     private appStoreSubscription: any;
     public filteredAnimals: Array<Animal>;
-    private isAdoptedFilter: string;
+    private animalsFilter: string;
 
     constructor(
         private _store: Store<any>,
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         });
 
         this.appStoreSubscription = this._store.select('appState').subscribe((appState) => {
-            this.isAdoptedFilter = appState['filter.isAdopted'];
+            this.animalsFilter = appState['filter.animals'];
             this.filteredAnimals = this.filterAnimals();
         });
     }
@@ -43,13 +43,20 @@ export class HomeComponent implements OnInit, OnDestroy {
             return [];
         }
 
-        if (this.isAdoptedFilter === 'All') {
+        if (this.animalsFilter === 'All') {
             return this.animals;
         }
 
-        const filteredAnimals = this.animals.filter((animal) => {
-            return animal.isAdopted === (this.isAdoptedFilter === 'Adopted' ? true : false);
-        });
-        return filteredAnimals;
+        if (this.animalsFilter === 'Adopted' || this.animalsFilter === 'Not Adopted') {
+            this.filteredAnimals = this.animals.filter((animal) => {
+                return animal.isAdopted === (this.animalsFilter === 'Adopted' ? true : false);
+            });
+        } else if (this.animalsFilter === 'Male' || this.animalsFilter === 'Female') {
+            this.filteredAnimals = this.animals.filter((animal) => {
+                return animal.gender === (this.animalsFilter === 'Male' ? 'M' : 'F');
+            });
+
+        }
+        return this.filteredAnimals;
     }
 }

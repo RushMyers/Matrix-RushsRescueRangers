@@ -7,8 +7,10 @@ export const
 
     ANIMAL_SEXES = ['M', 'F'],
 
-    FILTERS_IS_ADOPTED = [
+    FILTERS = [
         'All',
         'Adopted',
-        'Not Adopted'
+        'Not Adopted',
+        'Male',
+        'Female'
     ];

@@ -12,7 +12,7 @@ import * as Constants from '../../constants/constants';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
 
-  public filters = Constants.FILTERS_IS_ADOPTED;
+  public filters = Constants.FILTERS;
   public isAdoptedFilter: string;
   public appStoreSubscription: any;
 
@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
     this.appStoreSubscription = this._store.select('appState').subscribe((appState) => {
-      this.isAdoptedFilter = appState['filter.isAdopted'];
+      this.isAdoptedFilter = appState['filter.animals'];
     });
   }
 
@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   public onChange(filterValue: string) {
-    this._appStateActions.updateState({ 'filter.isAdopted': filterValue });
+    this._appStateActions.updateState({ 'filter.animals': filterValue });
   }
 
 }

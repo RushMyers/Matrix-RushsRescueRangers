@@ -4,18 +4,20 @@ import * as Constants from '../constants/constants';
 export interface State {
     // Modals
     'modal.isNewAdopterModalShown': boolean;
+    'modal.isConfirmDeleteModalShown': boolean;
 
     // Filters
-    'filter.isAdopted': string;
+    'filter.animals': string;
 }
 
 const initialAppState: State = {
 
     // Modals
     'modal.isNewAdopterModalShown': false,
+    'modal.isConfirmDeleteModalShown': false,
 
     // Filters
-    'filter.isAdopted': Constants.FILTERS_IS_ADOPTED[0],
+    'filter.animals': Constants.FILTERS[0],
 };
 
 export const UPDATE_APP_STATE = 'UPDATE_APP_STATE';

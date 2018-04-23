@@ -17,20 +17,34 @@ export class MockAnimalInterceptor implements HttpInterceptor {
     public allAnimals: Array<Animal> = [
         {
             id: 1, name: 'Fluffy', species: 'Dog', imageUrl: 'https://i.imgur.com/eZwTsb6.jpg',
-            gender: 'M', description: 'Quis nostrum exercitationem ullam corporis suscipit laboriosam cosmos shores.'
+            gender: 'M', description: 'Quis nostrum exercitationem ullam corporis suscipit laboriosam cosmos shores.',
+            isAdopted: false
         },
         {
             id: 2, name: 'Pickles', species: 'Cat', imageUrl: 'https://i.imgur.com/zItMO7k.jpg', gender: 'M',
-            description: 'Realm of the galaxies extraordinary claims require extraordinary evidence tingling of the spine inconspicuous'
+            description: 'Realm of the galaxies extraordinary claims require extraordinary evidence tingling of the spine inconspicuous',
+            isAdopted: false
         },
         {
             id: 3, name: 'Trigger', species: 'Horse', imageUrl: 'https://i.imgur.com/I7gvJ42.jpg', gender: 'F',
             description: 'motes of rock and gas', isAdopted: true
         },
-        { id: 4, name: 'Chorky', species: 'Pig', imageUrl: 'https://i.imgur.com/qJ30HYJ.jpg', isAdopted: true },
-        { id: 5, name: 'Brenda', species: 'Dog', imageUrl: 'https://i.imgur.com/nTt8wvq.jpg', isAdopted: true },
-        { id: 6, name: 'Henry', species: 'Dog', imageUrl: 'https://i.imgur.com/5V21pDS.jpg', isAdopted: false },
-        { id: 7, name: 'Cathy', species: 'Cat', imageUrl: 'https://i.imgur.com/w6TFe5X.jpg', isAdopted: true }
+        {
+            id: 4, name: 'Chorky', species: 'Pig', imageUrl: 'https://i.imgur.com/qJ30HYJ.jpg', gender: 'M',
+            description: 'motes of rock and gas', isAdopted: true
+        },
+        {
+            id: 5, name: 'Brenda', species: 'Dog', imageUrl: 'https://i.imgur.com/nTt8wvq.jpg', gender: 'F',
+            description: 'motes of rocks and gas', isAdopted: true
+        },
+        {
+            id: 6, name: 'Henry', species: 'Dog', imageUrl: 'https://i.imgur.com/5V21pDS.jpg', gender: 'M',
+            description: 'motes of rock and gas', isAdopted: false
+        },
+        {
+            id: 7, name: 'Cathy', species: 'Cat', imageUrl: 'https://i.imgur.com/w6TFe5X.jpg', gender: 'F',
+            description: 'motes of rock and gas', isAdopted: true
+        }
     ];
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

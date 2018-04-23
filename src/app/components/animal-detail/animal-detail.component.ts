@@ -16,6 +16,7 @@ export class AnimalDetailComponent implements OnInit {
   public selectedAnimal: Animal;
   private animals: Array<Animal>;
   public isNewAdopterModalVisible: boolean = false;
+  public isConfirmDeleteModalVisible: boolean = false;
   private animalsSubscription;
   private appStateSubscription;
 
@@ -34,6 +35,7 @@ export class AnimalDetailComponent implements OnInit {
 
     this.appStateSubscription = this._store.select('appState').subscribe((appState) => {
       this.isNewAdopterModalVisible = appState['modal.isNewAdopterModalShown'];
+      this.isConfirmDeleteModalVisible = appState['modal.isConfirmDeleteModalShown'];
     });
 
     this.getAnimal();
@@ -52,10 +54,6 @@ export class AnimalDetailComponent implements OnInit {
     this._router.navigate([`animals/${this.selectedAnimal.id}/edit`]);
   }
 
-  public deleteAnimal(): void {
-    this._animalActions.deleteAnimal(this.selectedAnimal);
-  }
-
   public showAllAnimals(): void {
     this._router.navigate(['']);
   }
@@ -66,5 +64,13 @@ export class AnimalDetailComponent implements OnInit {
 
   public hideNewAdopterModal(): void {
     this._appStateActions.updateState({ 'modal.isNewAdopterModalShown': false });
+  }
+
+  public showConfirmDeleteModal(): void {
+    this._appStateActions.updateState({ 'modal.isConfirmDeleteModalShown': true });
+  }
+
+  public hideConfirmDeleteModal(): void {
+    this._appStateActions.updateState({ 'modal.isConfirmDeleteModalShown': false });
   }
 }
