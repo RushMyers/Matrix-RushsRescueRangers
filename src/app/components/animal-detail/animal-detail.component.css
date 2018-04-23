@@ -40,9 +40,18 @@ hr {
     border: 0;
     border-top: 1px solid #eee;
 }
-.delete-animal {
-    float:right;
+
+.modal-footer {
+    display: flex;
+    justify-content: space-around;
 }
-.adopt-button {
-    float: right;
+.button-yellow {
+    background-color: #E8C547
+}
+
+.button-blue {
+    background-color: #688FCF
+}
+.button-red {
+    background-color: #E84136
 }

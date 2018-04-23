@@ -4,7 +4,7 @@
   <div class="animal-detail-card clearfix">
     <h2>
       <b>{{ selectedAnimal.name }}</b>
-      <button class="button adopt-button" (click)="showNewAdopterModal()">Adopt</button>
+
       <hr>
     </h2>
     <h4>{{ selectedAnimal.species }}</h4>
@@ -12,9 +12,11 @@
     <p>
       <i>{{ selectedAnimal.description }}</i>
     </p>
-
-    <button class="button edit-animal" (click)="editAnimal()">Edit</button>
-    <button class="button delete-animal" (click)="showConfirmDeleteModal()">Delete</button>
+    <div class="modal-footer">
+      <button class="button button-blue" (click)="showNewAdopterModal()">Adopt</button>
+      <button class="button button-yellow" (click)="editAnimal()">Edit</button>
+      <button class="button button-red" (click)="showConfirmDeleteModal()">Delete</button>
+    </div>
 
   </div>
 
