@@ -44,7 +44,7 @@ export class AnimalActions {
             );
     }
     public updateAnimal(animalInfo): void {
-        this._http.put<Animal>(`${Constants.ApiBaseUrl}/animals/${animalInfo.id}/edit`, animalInfo)
+        this._http.put<Animal>(`${Constants.ApiBaseUrl}/animals/${animalInfo.id}`, animalInfo)
             .subscribe(
                 (res) => {
                     this._store.dispatch({ type: EDIT_ANIMAL, payload: res });

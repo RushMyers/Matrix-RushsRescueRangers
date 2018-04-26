@@ -70,7 +70,7 @@ export class MockAnimalInterceptor implements HttpInterceptor {
             return Observable.of(response);
         }
 
-        if (req.method === 'PUT' && req.url === `${Constants.ApiBaseUrl}/animals/${req.body.id}/edit`) {
+        if (req.method === 'PUT' && req.url === `${Constants.ApiBaseUrl}/animals/${req.body.id}`) {
             const updatedAnimal: Animal = req.body;
             const response = new HttpResponse({
                 body: updatedAnimal
