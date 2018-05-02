@@ -3,14 +3,14 @@
   <img src="{{ selectedAnimal.imageUrl }}" alt="{{ selectedAnimal.name }}">
   <div class="animal-detail-card clearfix">
     <h2>
-      <b>{{ selectedAnimal.name }}</b>
+      <b>{{ selectedAnimal?.name }}</b>
 
       <hr>
     </h2>
-    <h4>{{ selectedAnimal.species }}</h4>
-    <h4>Sex: {{ selectedAnimal.gender }}</h4>
+    <h4>{{ selectedAnimal?.species }}</h4>
+    <h4>Sex: {{ selectedAnimal?.gender }}</h4>
     <p>
-      <i>{{ selectedAnimal.description }}</i>
+      <i>{{ selectedAnimal?.description }}</i>
     </p>
     <div class="modal-footer">
       <button class="button button-blue" (click)="showNewAdopterModal()">Adopt</button>

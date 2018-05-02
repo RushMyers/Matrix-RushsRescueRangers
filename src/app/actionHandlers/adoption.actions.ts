@@ -19,7 +19,7 @@ export class AdoptionActions {
         private _http: HttpClient,
         private _router: Router,
         private _store: Store<any>,
-        private _appStateActions
+        private _appStateActions: AppStateActions
     ) { }
 
     public createAdoption(adoptionObject): void {

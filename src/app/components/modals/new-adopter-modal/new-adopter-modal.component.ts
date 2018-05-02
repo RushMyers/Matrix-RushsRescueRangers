@@ -31,7 +31,6 @@ export class NewAdopterModalComponent implements OnInit {
 
   public createAdoption(): void {
     this._adoptionActions.createAdoption({ animal: this.currentAnimal, adopter: this.newAdopter });
-    this.closeModal();
   }
 
   ngOnInit() {
