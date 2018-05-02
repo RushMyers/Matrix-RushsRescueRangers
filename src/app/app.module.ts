@@ -13,12 +13,14 @@ import { APP_ACTIONS } from './app.actions';
 import { AppComponent } from './components/app/app.component';
 import { APP_COMPONENTS } from './app.components';
 import { APP_MOCK_INTERCEPTORS } from './app.mock.interceptors';
+import { APP_PIPES } from './app.pipes';
 import { APP_ROUTES } from './app.routes';
 import { APP_STORES } from './app.stores';
 
 @NgModule({
   declarations: [
     ...APP_COMPONENTS,
+    ...APP_PIPES
   ],
   imports: [
     BrowserModule,

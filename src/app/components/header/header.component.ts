@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
+  public Title: string;
 
   ngOnInit() {
+    this.Title = "Rush's Rescue Rangers";
   }
 
 }
