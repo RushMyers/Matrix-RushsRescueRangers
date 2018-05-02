@@ -1,5 +1,5 @@
 export const
-    ApiBaseUrl = '/api',
+    ApiBaseUrl = 'http://localhost:50234/api',
     REQUEST_TYPE_GET = 'GET',
     REQUEST_TYPE_POST = 'POST',
     REQUEST_TYPE_PUT = 'PUT',

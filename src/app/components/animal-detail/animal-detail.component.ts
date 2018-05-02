@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 
@@ -11,7 +11,7 @@ import { AppStateActions } from '../../actionHandlers/appState.actions';
   templateUrl: './animal-detail.component.html',
   styleUrls: ['./animal-detail.component.css']
 })
-export class AnimalDetailComponent implements OnInit {
+export class AnimalDetailComponent implements OnInit, OnDestroy {
 
   public selectedAnimal: Animal;
   private animals: Array<Animal>;
@@ -28,19 +28,26 @@ export class AnimalDetailComponent implements OnInit {
     private _appStateActions: AppStateActions
   ) { }
 
-  ngOnInit() {
+  public ngOnInit() {
+
     this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {
       this.animals = animals;
     });
+
+    this.getAnimal();
+
 
     this.appStateSubscription = this._store.select('appState').subscribe((appState) => {
       this.isNewAdopterModalVisible = appState['modal.isNewAdopterModalShown'];
       this.isConfirmDeleteModalVisible = appState['modal.isConfirmDeleteModalShown'];
     });
 
-    this.getAnimal();
   }
 
+  public ngOnDestroy() {
+    this.animalsSubscription.unsubscribe();
+    this.appStateSubscription.unsubscribe();
+  }
   private getAnimal(): void {
     const id: number = +this._route.snapshot.paramMap.get('id');
     this.selectedAnimal = this.animals.find(animal => animal.id === id);

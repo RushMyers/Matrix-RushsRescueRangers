@@ -9,6 +9,7 @@ export type State = Array<Animal>;
 // ActionTypes
 export const
     UPDATE_ANIMALS = 'UPDATE_ANIMALS',
+    UPDATE_ANIMAL = 'UPDATE_ANIMAL',
     CLEAR_ANIMALS = 'CLEAR_ANIMALS',
     ADD_ANIMAL = 'ADD_ANIMAL',
     EDIT_ANIMAL = 'EDIT_ANIMAL',
@@ -17,6 +18,10 @@ export const
 export class UpdateAnimalsAction implements Action {
     readonly type = UPDATE_ANIMALS;
     payload: Array<Animal>;
+}
+export class UpdateAnimalAction implements Action {
+    readonly type = UPDATE_ANIMAL;
+    payload: Animal;
 }
 export class ClearanimalsAction implements Action {
     readonly type = CLEAR_ANIMALS;
@@ -33,16 +38,24 @@ export class DeleteAnimalAction implements Action {
     readonly type = DELETE_ANIMAL;
     payload: number;
 }
-export type Actions = UpdateAnimalsAction | ClearanimalsAction | AddAnimalAction | EditAnimalAction | DeleteAnimalAction;
+export type Actions = UpdateAnimalsAction | UpdateAnimalAction | ClearanimalsAction |
+    AddAnimalAction | EditAnimalAction | DeleteAnimalAction;
 
 // Store/Reducer
 export function animals(state: State = [], action: Actions): State {
     let newState: State;
+    let animalIndex: number;
 
     switch (action.type) {
 
         case UPDATE_ANIMALS:
             return action.payload;
+
+        case UPDATE_ANIMAL:
+            newState = makeClone(state);
+            animalIndex = newState.findIndex(animal => animal.id === action.payload.id);
+            newState[animalIndex] = action.payload;
+            return newState;
 
         case CLEAR_ANIMALS:
             return [];
@@ -55,7 +68,7 @@ export function animals(state: State = [], action: Actions): State {
 
         case EDIT_ANIMAL:
             newState = makeClone(state);
-            const animalIndex = newState.findIndex(animal => animal.id === action.payload.id);
+            animalIndex = newState.findIndex(animal => animal.id === action.payload.id);
 
             newState[animalIndex] = action.payload;
             return newState;

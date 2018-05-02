@@ -18,20 +18,20 @@ export class AdopterActions {
         private _store: Store<any>
     ) { }
 
-    public createAdopter(animal: Animal, adopter: Adopter): void {
+    // public createAdopter(animal: Animal, adopter: Adopter): void {
 
-        this._http.post<Adopter>(`${Constants.ApiBaseUrl}/adopters`, adopter)
-            .subscribe(
-                (res) => {
-                    this._store.dispatch({ type: ADD_ADOPTER, payload: res });
-                    this.createAdoption(animal, res);
-                    this._router.navigate(['']);
-                },
-                (err) => {
-                    console.log(err);
-                }
-            );
-    }
+    //     this._http.post<Adopter>(`${Constants.ApiBaseUrl}/adopters`, adopter)
+    //         .subscribe(
+    //             (res) => {
+    //                 this._store.dispatch({ type: ADD_ADOPTER, payload: res });
+    //                 this.createAdoption(animal, res);
+    //                 this._router.navigate(['']);
+    //             },
+    //             (err) => {
+    //                 console.log(err);
+    //             }
+    //         );
+    // }
 
     public updateAdopter(adopterInfo: Adopter): void {
         this._http.put<Adopter>(`${Constants.ApiBaseUrl}/adopters/${adopterInfo.id}/edit`, adopterInfo)
@@ -61,7 +61,5 @@ export class AdopterActions {
                 }
             );
     }
-    private createAdoption(animal: Animal, adopter: Adopter) {
-        this._adoptionActions.createAdoption(animal, adopter);
-    }
+
 }

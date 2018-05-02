@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
 import { Adopter } from '../models/adopter';
+import { AdoptionObject } from '../models/adoptionObject';
 import { Animal } from '../models/animal';
 import { AnimalActions } from '../actionHandlers/animal.actions';
 import { ADD_ADOPTION } from '../stores/adoptions.store';
@@ -18,23 +19,20 @@ export class AdoptionActions {
         private _store: Store<any>
     ) { }
 
-    public createAdoption(animal: Animal, adopter: Adopter): void {
-        this._http.post<Adopter>(`${Constants.ApiBaseUrl}/adoptions`, { animal, adopter })
+    public createAdoption(adoptionObject): void {
+        this._http.post<Animal>(`${Constants.ApiBaseUrl}/adoptions`, { adoptionObject })
             .subscribe(
                 (res) => {
-                    this._store.dispatch({ type: ADD_ADOPTION, payload: res });
-                    this.updateAdoptedAnimal(animal);
-                    this._router.navigate(['']);
+                    this.updateAnimal(res);
+                    this._router.navigate(['/animals/adoptionObject.animal.id']);
                 },
                 (err) => {
                     console.log(err);
                 }
+
             );
     }
-
-    private updateAdoptedAnimal(animal: Animal) {
-        this._animalActions.updateAnimal(
-            { ...animal, isAdopted: true }
-        );
+    private updateAnimal(animal: Animal): void {
+        this._animalActions.updateAnimal(animal);
     }
 }

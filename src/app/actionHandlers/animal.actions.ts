@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
 import { Animal } from '../models/animal';
-import { UPDATE_ANIMALS, ADD_ANIMAL, EDIT_ANIMAL, DELETE_ANIMAL } from '../stores/animals.store';
+import { UPDATE_ANIMALS, UPDATE_ANIMAL, ADD_ANIMAL, EDIT_ANIMAL, DELETE_ANIMAL } from '../stores/animals.store';
 import * as Constants from '../constants/constants';
 
 @Injectable()
@@ -24,6 +24,18 @@ export class AnimalActions {
                     this._store.dispatch({ type: UPDATE_ANIMALS, payload: res });
                 },
                 (err: HttpErrorResponse) => {
+                    console.log(err);
+                }
+            );
+    }
+
+    public getAnimal(animalId: number): void {
+        this._http.get<Animal>(`${Constants.ApiBaseUrl}/animals/${animalId}`)
+            .subscribe(
+                (res) => {
+                    this._store.dispatch({ type: UPDATE_ANIMAL, payload: res });
+                },
+                (err) => {
                     console.log(err);
                 }
             );
