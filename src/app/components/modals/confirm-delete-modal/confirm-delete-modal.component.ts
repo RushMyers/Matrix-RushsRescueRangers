@@ -25,6 +25,7 @@ export class ConfirmDeleteModalComponent implements OnInit {
 
   public deleteAnimal(): void {
     this._animalActions.deleteAnimal(this.currentAnimal);
+    this.closeModal();
   }
 
   public closeModal(): void {

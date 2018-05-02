@@ -55,7 +55,7 @@ export class AnimalActions {
                 }
             );
     }
-    public updateAnimal(animalInfo): void {
+    public updateAnimal(animalInfo: Animal): void {
         this._http.put<Animal>(`${Constants.ApiBaseUrl}/animals/${animalInfo.id}`, animalInfo)
             .subscribe(
                 (res) => {
@@ -67,18 +67,14 @@ export class AnimalActions {
                 }
             );
     }
-    public deleteAnimal(animal): void {
-        this._http.delete<boolean>(`${Constants.ApiBaseUrl}/animals/${animal.id}`)
+    public deleteAnimal(animal: Animal): void {
+        this._http.delete(`${Constants.ApiBaseUrl}/animals/${animal.id}`)
             .subscribe(
                 (res) => {
-                    if (res) {
-                        this._store.dispatch({ type: DELETE_ANIMAL, payload: animal.id });
-                        this._router.navigate(['']);
-                    } else {
-                        alert('Database Error');
-                    }
+                    this._store.dispatch({ type: DELETE_ANIMAL, payload: animal.id });
+                    this._router.navigate(['']);
                 },
-                (err) => {
+                (err: HttpErrorResponse) => {
                     console.log(err);
                 }
             );

@@ -9,6 +9,7 @@ import { Animal } from '../models/animal';
 import { AnimalActions } from '../actionHandlers/animal.actions';
 import { ADD_ADOPTION } from '../stores/adoptions.store';
 import * as Constants from '../constants/constants';
+import { ADD_ADOPTER } from '../stores/adopters.store';
 
 @Injectable()
 export class AdoptionActions {
@@ -20,10 +21,11 @@ export class AdoptionActions {
     ) { }
 
     public createAdoption(adoptionObject): void {
-        this._http.post<Animal>(`${Constants.ApiBaseUrl}/adoptions`, { adoptionObject })
+        this._http.post<Animal>(`${Constants.ApiBaseUrl}/adoptions`, adoptionObject)
             .subscribe(
                 (res) => {
                     this.updateAnimal(res);
+                    this._store.dispatch({ type: ADD_ADOPTER, payload: adoptionObject.adopter });
                     this._router.navigate(['/animals/adoptionObject.animal.id']);
                 },
                 (err) => {
