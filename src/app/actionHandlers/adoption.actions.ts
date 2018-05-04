@@ -26,7 +26,7 @@ export class AdoptionActions {
         this._http.post<Animal>(`${Constants.ApiBaseUrl}/adoptions`, adoptionObject)
             .subscribe(
                 (res) => {
-                    this.closeNewAdopterModal();
+                    this._appStateActions.updateState({ 'modal.isNewAdopterModalShown': false });
                     this.updateAnimal(res);
                     this._store.dispatch({ type: ADD_ADOPTER, payload: adoptionObject.adopter });
                     this._router.navigate(['/animals/adoptionObject.animal.id']);
@@ -38,8 +38,5 @@ export class AdoptionActions {
     }
     private updateAnimal(animal: Animal): void {
         this._animalActions.updateAnimal(animal);
-    }
-    private closeNewAdopterModal(): void {
-        this._appStateActions.updateState({ 'modal.isNewAdopterModalShown': false });
     }
 }
