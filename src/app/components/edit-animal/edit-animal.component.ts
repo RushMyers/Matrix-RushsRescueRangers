@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 
@@ -17,29 +17,44 @@ export class EditAnimalComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private _store: Store<any>,
-    private _animalActions: AnimalActions
+    private _animalActions: AnimalActions,
+    private _fb: FormBuilder
   ) { }
 
   public selectedAnimal: Animal;
   private animals: Array<Animal>;
   private animalsSubscription;
-  public name: string;
-  public species: string;
-  public imageUrl: string;
-  public description: string;
+  public editAnimalForm: FormGroup;
 
   ngOnInit() {
+    const animalId = +this._route.snapshot.paramMap.get('id');
+
     this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {
       this.animals = animals;
+      this.selectedAnimal = this.getAnimal(animalId);
+
+      this.setupEditAnimalForm();
     });
 
-    const animalId = +this._route.snapshot.paramMap.get('id');
-    this.selectedAnimal = this.getAnimal(animalId);
+    this.setupEditAnimalForm();
+  }
 
-    this.name = this.selectedAnimal.name;
-    this.species = this.selectedAnimal.species;
-    this.imageUrl = this.selectedAnimal.imageUrl;
-    this.description = this.selectedAnimal.description;
+  private setupEditAnimalForm(): void {
+    if (this.selectedAnimal) {
+      this.editAnimalForm = this._fb.group({
+        name: this.selectedAnimal.name,
+        species: this.selectedAnimal.species,
+        imageUrl: this.selectedAnimal.imageUrl,
+        description: this.selectedAnimal.description
+      });
+    } else {
+      this.editAnimalForm = this._fb.group({
+        name: '',
+        species: '',
+        imageUrl: '',
+        description: ''
+      });
+    }
   }
 
   private getAnimal(id: number): Animal {
@@ -48,8 +63,11 @@ export class EditAnimalComponent implements OnInit {
 
   private updateAnimal(): void {
     const updatedAnimalData: Animal = {
-      id: this.selectedAnimal.id, name: this.name, species: this.species,
-      imageUrl: this.imageUrl, description: this.description
+      id: this.selectedAnimal.id,
+      name: this.editAnimalForm.get('name').value,
+      species: this.editAnimalForm.get('species').value,
+      imageUrl: this.editAnimalForm.get('imageUrl').value,
+      description: this.editAnimalForm.get('description').value
     };
     this._animalActions.updateAnimal(updatedAnimalData);
   }

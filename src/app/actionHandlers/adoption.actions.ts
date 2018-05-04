@@ -29,7 +29,7 @@ export class AdoptionActions {
                     this._appStateActions.updateState({ 'modal.isNewAdopterModalShown': false });
                     this.updateAnimal(res);
                     this._store.dispatch({ type: ADD_ADOPTER, payload: adoptionObject.adopter });
-                    this._router.navigate(['/animals/adoptionObject.animal.id']);
+                    this._router.navigate([`/animals/${adoptionObject.animal.id}`]);
                 },
                 (err) => {
                     console.log(err);
