@@ -5,41 +5,41 @@
 
       <h3>Adopter Information for {{ currentAnimal.name }}</h3>
 
-      <form ngSubmit="createAdopter()" class="form clearfix">
+      <form ngSubmit="createAdopter()" class="form clearfix" [formGroup]="newAdopterForm">
 
         <div class="form-group">
           <label for="firstName">First Name</label>
-          <input type="text" class="input" required [(ngModel)]="newAdopter.firstName" name="firstName">
+          <input type="text" class="input" required formControlName="firstName" name="firstName">
         </div>
 
         <div class="form-group">
           <label for="lastName">Last Name</label>
-          <input type="text" class="input" [(ngModel)]="newAdopter.lastName" name="lastName">
+          <input type="text" class="input" formControlName="lastName" name="lastName">
         </div>
 
         <div class="form-group">
           <label for="address">Address</label>
-          <input type="text" class="input" [(ngModel)]="newAdopter.address" name="address">
+          <input type="text" class="input" formControlName="address" name="address">
         </div>
 
         <div class="form-group">
           <label for="city">City</label>
-          <input type="text" class="input" [(ngModel)]="newAdopter.city" name="city">
+          <input type="text" class="input" formControlName="city" name="city">
         </div>
 
         <div class="form-group">
           <label for="state">State</label>
-          <input type="text" class="input" [(ngModel)]="newAdopter.state" name="state">
+          <input type="text" class="input" formControlName="state" name="state">
         </div>
 
         <div class="form-group">
           <label for="zipcode">Zip</label>
-          <input type="text" class="input" [(ngModel)]="newAdopter.zipcode" name="zipcode">
+          <input type="text" class="input" formControlName="zipcode" name="zipcode">
         </div>
 
         <div class="form-group">
           <label for="phoneNo">Phone</label>
-          <input type="text" class="input" [(ngModel)]="newAdopter.phoneNo" name="phoneNo">
+          <input type="text" class="input" forGroupName="newAdopter.phoneNo" name="phoneNo">
         </div>
 
 
