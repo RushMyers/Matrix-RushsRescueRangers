@@ -2,22 +2,30 @@ import { Action, ActionReducer } from '@ngrx/store';
 import * as Constants from '../constants/constants';
 
 export interface State {
+
+    // Dropdowns
+    'dropdown.isAnimalFilterDropdownShown': boolean;
+
     // Modals
     'modal.isNewAdopterModalShown': boolean;
     'modal.isConfirmDeleteModalShown': boolean;
 
     // Filters
-    'filter.animals': string;
+    'filter.animals': Array<string>;
 }
 
 const initialAppState: State = {
+
+    //
+    'dropdown.isAnimalFilterDropdownShown': false,
 
     // Modals
     'modal.isNewAdopterModalShown': false,
     'modal.isConfirmDeleteModalShown': false,
 
     // Filters
-    'filter.animals': Constants.FILTERS[0],
+    'filter.animals': Constants.FILTERS,
+
 };
 
 export const UPDATE_APP_STATE = 'UPDATE_APP_STATE';

@@ -1,9 +1,13 @@
 <nav>
   <div class="dropdown">
-    <label for="">Filter by:</label>
-    <select [(ngModel)]="isAdoptedFilter" class="dropdown-select" (ngModelChange)="onChange($event)">
-      <option *ngFor="let filter of filters" [ngValue]="filter" class="option">{{filter}}</option>
-    </select>
+    <label for="" (click)="toggleDropdown()">Filter by:</label>
+    <!-- <select [(ngModel)]="isAdoptedFilter" class="dropdown-select" (ngModelChange)="onChange($event)"> -->
+    <!-- <input type="checkbox"> -->
+    <!-- <option *ngFor="let filter of filters" [ngValue]="filter" class="option">{{filter}}</option> -->
+    <!-- </select> -->
+    <div *ngIf="isAnimalFilterDropdownShown" class="filters-dropdown" x>
+      <div class="dropdown-item" *ngFor="let filter of filters">{{filter}}</div>
+    </div>
   </div>
   <a class="navbar-link" (click)='newAnimal()'>New Animal</a>
 </nav>

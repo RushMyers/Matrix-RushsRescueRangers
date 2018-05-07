@@ -3,6 +3,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { RouterModule } from '@angular/router';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
@@ -23,6 +24,7 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     FormsModule,
+    NgMultiSelectDropDownModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
     HttpModule,
