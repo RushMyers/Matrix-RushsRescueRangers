@@ -13,7 +13,7 @@
       <i>{{ selectedAnimal?.description }}</i>
     </p>
     <div class="modal-footer">
-      <button class="button button-blue" (click)="showNewAdopterModal()">Adopt</button>
+      <button *ngIf="isAnimalAvailable" class="button button-blue" (click)="showNewAdopterModal()">Adopt</button>
       <button class="button button-yellow" (click)="editAnimal()">Edit</button>
       <button class="button button-red" (click)="showConfirmDeleteModal()">Delete</button>
     </div>

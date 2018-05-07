@@ -17,6 +17,7 @@ export class AnimalDetailComponent implements OnInit, OnDestroy {
   private animals: Array<Animal>;
   public isNewAdopterModalVisible: boolean = false;
   public isConfirmDeleteModalVisible: boolean = false;
+  public isAnimalAvailable: boolean;
   private animalsSubscription;
   private appStateSubscription;
 
@@ -35,7 +36,7 @@ export class AnimalDetailComponent implements OnInit, OnDestroy {
     });
 
     this.getAnimal();
-
+    this.isAnimalAvailable = !this.selectedAnimal.isAdopted;
 
     this.appStateSubscription = this._store.select('appState').subscribe((appState) => {
       this.isNewAdopterModalVisible = appState['modal.isNewAdopterModalShown'];
