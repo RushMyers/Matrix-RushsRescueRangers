@@ -13,8 +13,8 @@ import * as Constants from '../../constants/constants';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
 
-  public filters = Constants.FILTERS;
-  public isAdoptedFilter: string;
+  public filterOptionTypes = Constants.FILTERS;
+  // public isAdoptedFilter: string;
   public appStateSubscription: any;
   public isAnimalFilterDropdownShown: boolean = false;
 
@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
     this.appStateSubscription = this._store.select('appState').subscribe((appState) => {
-      this.isAdoptedFilter = appState['filter.animals'];
+      // this.isAdoptedFilter = appState['filter.animals'];
       this.isAnimalFilterDropdownShown = appState['dropdown.isAnimalFilterDropdownShown'];
     });
   }
@@ -48,8 +48,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   }
 
-  public onChange(filterValue: string) {
-    this._appStateActions.updateState({ 'filter.animals': filterValue });
+  // public onChange(filterValue: string) {
+  //   this._appStateActions.updateState({ 'filter.animals': filterValue });
+  // }
+
+
+
+  public toggleFilter(filterName: string, filterValue: string): void {
+    console.log(filterName, filterValue);
+    this.updateFilters(filterName);
+    this._appStateActions.updateState({ 'filter.animals': filterName });
   }
 
+  public updateFilters(filterName: string): any {
+    console.log(this.filterOptionTypes);
+  }
 }

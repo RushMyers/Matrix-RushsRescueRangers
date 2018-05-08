@@ -5,8 +5,13 @@
     <!-- <input type="checkbox"> -->
     <!-- <option *ngFor="let filter of filters" [ngValue]="filter" class="option">{{filter}}</option> -->
     <!-- </select> -->
-    <div *ngIf="isAnimalFilterDropdownShown" class="filters-dropdown" x>
-      <div class="dropdown-item" *ngFor="let filter of filters">{{filter}}</div>
+    <div *ngIf="isAnimalFilterDropdownShown" class="filters-dropdown">
+      <div *ngFor="let filterType of filterOptionTypes">
+        <div class="dropdown-title">
+          <b>{{ filterType.displayName }}</b>
+        </div>
+        <div *ngFor='let filter of filterType.options' (click)="toggleFilter( filterType.name, filter )" class="dropdown-item">{{ filter }}</div>
+      </div>
     </div>
   </div>
   <a class="navbar-link" (click)='newAnimal()'>New Animal</a>

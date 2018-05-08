@@ -11,12 +11,14 @@ export interface State {
     'modal.isConfirmDeleteModalShown': boolean;
 
     // Filters
-    'filter.animals': Array<string>;
+    // 'filter.animals': Array<string>;
+    'filter.animals': object;
+
 }
 
 const initialAppState: State = {
 
-    //
+    // Dropdowns
     'dropdown.isAnimalFilterDropdownShown': false,
 
     // Modals
@@ -24,7 +26,8 @@ const initialAppState: State = {
     'modal.isConfirmDeleteModalShown': false,
 
     // Filters
-    'filter.animals': Constants.FILTERS,
+    // 'filter.animals': Constants.FILTERS,
+    'filter.animals': {}
 
 };
 

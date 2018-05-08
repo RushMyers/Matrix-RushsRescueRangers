@@ -8,10 +8,31 @@ export const
     ANIMAL_SEXES = ['M', 'F'],
 
     FILTERS = [
-        'All',
-        'Adopted',
-        'Not Adopted',
-        'Male',
-        'Female'
-    ];
+        {
+            name: 'filter.animals.gender',
+            displayName: 'Gender',
+            options: [
+                'M',
+                'F'
+            ]
+        },
 
+        {
+            name: 'filter.animals.adoptionStatus',
+            displayName: 'Adoption Status',
+            options: [
+                'Adopted',
+                'Not Adopted'
+            ]
+        },
+
+        {
+            name: 'filter.animals.species',
+            displayName: 'Species',
+            options: [
+                'Dog',
+                'Cat',
+                'Horse'
+            ]
+        }
+    ];
