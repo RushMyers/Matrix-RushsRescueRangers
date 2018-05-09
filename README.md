@@ -6,9 +6,16 @@
 2. ~~Register an Animal~~
 3. ~~Update an Animal's Info~~
 4. ~~Delete an Animal~~
-5. Process Adoptions
-6. View Tasks (Outstanding Tasks)
-7. View Activity Log (Completed Tasks)
+5. ~~Process Adoptions~~
+6. ~~Turn off mocking~~
+     * ~~Switch base url to API URL~~
+     * ~~Refactor adopton creation to work with API data~~
+     * ~~Test other actions and fix bugs related to interacting with API~~
+7. ~~Incorporate angular reactive forms throughout app.~~
+     * ~~Update animal component, new animal component, and new adopter modal.~~
+8. Separate filters and enable application of multiple filters.
+9. View Tasks (Outstanding Tasks)
+10. View Activity Log (Completed Tasks)
 
 ## ERDs
 
