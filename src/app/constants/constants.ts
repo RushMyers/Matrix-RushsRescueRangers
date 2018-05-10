@@ -12,8 +12,8 @@ export const
             name: 'filter.animals.gender',
             displayName: 'Gender',
             options: [
-                'M',
-                'F'
+                { 'M': false },
+                { 'F': false }
             ]
         },
 
@@ -21,8 +21,8 @@ export const
             name: 'filter.animals.adoptionStatus',
             displayName: 'Adoption Status',
             options: [
-                'Adopted',
-                'Not Adopted'
+                { 'Adopted': false },
+                { 'Not Adopted': false }
             ]
         },
 
@@ -30,9 +30,9 @@ export const
             name: 'filter.animals.species',
             displayName: 'Species',
             options: [
-                'Dog',
-                'Cat',
-                'Horse'
+                { 'Dog': false },
+                { 'Cat': false },
+                { 'Horse': false }
             ]
         }
     ];

@@ -1,18 +1,29 @@
 <nav>
   <div class="dropdown">
-    <label for="" (click)="toggleDropdown()">Filter by:</label>
-    <!-- <select [(ngModel)]="isAdoptedFilter" class="dropdown-select" (ngModelChange)="onChange($event)"> -->
-    <!-- <input type="checkbox"> -->
-    <!-- <option *ngFor="let filter of filters" [ngValue]="filter" class="option">{{filter}}</option> -->
-    <!-- </select> -->
-    <div *ngIf="isAnimalFilterDropdownShown" class="filters-dropdown">
-      <div *ngFor="let filterType of filterOptionTypes">
-        <div class="dropdown-title">
-          <b>{{ filterType.displayName }}</b>
-        </div>
-        <div *ngFor='let filter of filterType.options' (click)="toggleFilter( filterType.name, filter )" class="dropdown-item">{{ filter }}</div>
+    <label for="" (click)="toggleGenderDropdown()">Filter by Gender</label>
+    <div *ngIf="isGenderFilterDropdownShown" class="filters-dropdown">
+      <div *ngFor="let filter of filterOptionsGender" (click)="toggleGenderFilter(filter)">{{ filter | titlecase }}
       </div>
     </div>
   </div>
+
+
+  <div class="dropdown">
+    <label for="" (click)="toggleAdoptionDropdown()">Filter by Adoption Status</label>
+    <div *ngIf="isAdoptionFilterDropdownShown" class="filters-dropdown">
+      <div *ngFor="let filter of filterOptionsAdoptionStatus" (click)="toggleAdoptionFilter(filter)">{{ filter ? 'Adopted' : 'Not Adopted' }}
+      </div>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <label for="" (click)="toggleSpeciesDropdown()">Filter by Species</label>
+    <div *ngIf="isSpeciesFilterDropdownShown" class="filters-dropdown">
+      <div *ngFor="let filter of filterOptionsSpecies" (click)="toggleSpeciesFilter(filter)">{{ filter | titlecase }}
+      </div>
+    </div>
+  </div>
+
   <a class="navbar-link" (click)='newAnimal()'>New Animal</a>
+
 </nav>

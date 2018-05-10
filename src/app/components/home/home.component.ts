@@ -15,21 +15,32 @@ export class HomeComponent implements OnInit, OnDestroy {
     private animalsSubscription: any;
     private appStoreSubscription: any;
     public filteredAnimals: Array<Animal>;
-    private animalsFilter: object;
+    private animalsFilter: any;
+    private animalsGenderFilter: string;
+    private animalsAdoptionFilter: boolean;
+    private animalsSpeciesFilter: string;
+    private currentFilters: Array<any>;
 
     constructor(
         private _store: Store<any>,
     ) { }
 
     public ngOnInit() {
+
         this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {
-            this.animals = animals;
-            this.filteredAnimals = this.filterAnimals();
+            if (animals.length > 0) {
+                this.animals = animals;
+                console.log('In ngOnInit', this.animals);
+                this.filterAnimals();
+            }
         });
 
         this.appStoreSubscription = this._store.select('appState').subscribe((appState) => {
-            this.animalsFilter = appState['filter.animals'];
-            this.filteredAnimals = this.filterAnimals();
+            this.animalsGenderFilter = appState['filter.animals.gender'];
+            this.animalsAdoptionFilter = appState['filter.animals.adoptionStatus'];
+            this.animalsSpeciesFilter = appState['filter.animals.species'];
+
+            this.filterAnimals();
         });
     }
 
@@ -39,26 +50,28 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     private filterAnimals(): Array<Animal> {
-        if (!this.animals) {
-            return [];
+        if (!this.filteredAnimals) {
+            this.filteredAnimals = this.animals;
         }
 
-        if (this.animalsFilter === {}) {
-            return this.animals;
+        console.log('FilteredAnimalsMethod - filteredAnimals:', this.filteredAnimals);
+        console.log('FilteredAnimalsMethod - animals', this.animals);
+        if (this.animalsGenderFilter) {
+            this.filteredAnimals = this.filteredAnimals.filter((animal) => {
+                return animal.gender === this.animalsGenderFilter.toUpperCase();
+            });
         }
-        this.filteredAnimals = this.animals;
-
-        console.log(this.animalsFilter);
-        // if (this.animalsFilter === 'Adopted' || this.animalsFilter === 'Not Adopted') {
-        //     this.filteredAnimals = this.animals.filter((animal) => {
-        //         return animal.isAdopted === (this.animalsFilter === 'Adopted' ? true : false);
-        //     });
-        // } else if (this.animalsFilter === 'Male' || this.animalsFilter === 'Female') {
-        //     this.filteredAnimals = this.animals.filter((animal) => {
-        //         return animal.gender === (this.animalsFilter === 'Male' ? 'M' : 'F');
-        //     });
-
-        // }
+        if (this.animalsAdoptionFilter) {
+            this.filteredAnimals = this.filteredAnimals.filter((animal) => {
+                console.log(`Animal.isAdopted: ${animal.isAdopted}`, `Filter value: ${this.animalsAdoptionFilter}`);
+                return animal.isAdopted === this.animalsAdoptionFilter;
+            });
+        }
+        if (this.animalsSpeciesFilter) {
+            this.filteredAnimals = this.filteredAnimals.filter((animal) => {
+                return animal.species.toLowerCase() === this.animalsSpeciesFilter;
+            });
+        }
         return this.filteredAnimals;
     }
 }

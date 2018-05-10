@@ -4,30 +4,35 @@ import * as Constants from '../constants/constants';
 export interface State {
 
     // Dropdowns
-    'dropdown.isAnimalFilterDropdownShown': boolean;
+    'dropdown.isGenderFilterDropdownShown': boolean;
+    'dropdown.isAdoptionFilterDropdownShown': boolean;
+    'dropdown.isSpeciesFilterDropdownShown': boolean;
 
     // Modals
     'modal.isNewAdopterModalShown': boolean;
     'modal.isConfirmDeleteModalShown': boolean;
 
     // Filters
-    // 'filter.animals': Array<string>;
-    'filter.animals': object;
-
+    'filter.animals.gender': string;
+    'filter.animals.adoptionStatus': boolean;
+    'filter.animals.species': string;
 }
 
 const initialAppState: State = {
 
     // Dropdowns
-    'dropdown.isAnimalFilterDropdownShown': false,
+    'dropdown.isGenderFilterDropdownShown': false,
+    'dropdown.isAdoptionFilterDropdownShown': false,
+    'dropdown.isSpeciesFilterDropdownShown': false,
 
     // Modals
     'modal.isNewAdopterModalShown': false,
     'modal.isConfirmDeleteModalShown': false,
 
     // Filters
-    // 'filter.animals': Constants.FILTERS,
-    'filter.animals': {}
+    'filter.animals.gender': '',
+    'filter.animals.adoptionStatus': false,
+    'filter.animals.species': ''
 
 };
 
