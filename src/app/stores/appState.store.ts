@@ -14,7 +14,7 @@ export interface State {
 
     // Filters
     'filter.animals.gender': string;
-    'filter.animals.adoptionStatus': boolean;
+    'filter.animals.adoptionStatus': string;
     'filter.animals.species': string;
 }
 
@@ -31,7 +31,7 @@ const initialAppState: State = {
 
     // Filters
     'filter.animals.gender': '',
-    'filter.animals.adoptionStatus': false,
+    'filter.animals.adoptionStatus': '',
     'filter.animals.species': ''
 
 };

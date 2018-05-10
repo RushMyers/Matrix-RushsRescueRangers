@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     public filteredAnimals: Array<Animal>;
     private animalsFilter: any;
     private animalsGenderFilter: string;
-    private animalsAdoptionFilter: boolean;
+    private animalsAdoptionFilter: string;
     private animalsSpeciesFilter: string;
     private currentFilters: Array<any>;
 
@@ -28,9 +28,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     public ngOnInit() {
 
         this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {
-            if (animals.length > 0) {
+            if (animals.length) {
                 this.animals = animals;
-                console.log('In ngOnInit', this.animals);
                 this.filterAnimals();
             }
         });
@@ -54,20 +53,23 @@ export class HomeComponent implements OnInit, OnDestroy {
             this.filteredAnimals = this.animals;
         }
 
-        console.log('FilteredAnimalsMethod - filteredAnimals:', this.filteredAnimals);
-        console.log('FilteredAnimalsMethod - animals', this.animals);
-        if (this.animalsGenderFilter) {
+        if (this.animalsGenderFilter === 'all' || this.animalsAdoptionFilter === 'all' || this.animalsSpeciesFilter === 'all') {
+            this.filteredAnimals = this.animals;
+        }
+
+        if (this.animalsGenderFilter && this.animalsGenderFilter !== 'all') {
             this.filteredAnimals = this.filteredAnimals.filter((animal) => {
                 return animal.gender === this.animalsGenderFilter.toUpperCase();
             });
         }
-        if (this.animalsAdoptionFilter) {
+
+        if (this.animalsAdoptionFilter && this.animalsAdoptionFilter !== 'all') {
             this.filteredAnimals = this.filteredAnimals.filter((animal) => {
-                console.log(`Animal.isAdopted: ${animal.isAdopted}`, `Filter value: ${this.animalsAdoptionFilter}`);
-                return animal.isAdopted === this.animalsAdoptionFilter;
+                return animal.isAdopted === (this.animalsAdoptionFilter === 'adopted') ? true : false;
             });
         }
-        if (this.animalsSpeciesFilter) {
+
+        if (this.animalsSpeciesFilter && this.animalsSpeciesFilter !== 'all') {
             this.filteredAnimals = this.filteredAnimals.filter((animal) => {
                 return animal.species.toLowerCase() === this.animalsSpeciesFilter;
             });

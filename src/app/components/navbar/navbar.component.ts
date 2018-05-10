@@ -13,16 +13,16 @@ import * as Constants from '../../constants/constants';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-
-  // public filterOptionTypes = Constants.FILTERS;
-  // public isAdoptedFilter: string;
   public filterOptionsGender: Array<string>;
-  public filterOptionsAdoptionStatus: Array<boolean>;
+  public filterOptionsAdoptionStatus: Array<string>;
   public filterOptionsSpecies: Array<string>;
   public appStateSubscription: any;
   public isAdoptionFilterDropdownShown: boolean = false;
   public isGenderFilterDropdownShown: boolean = false;
   public isSpeciesFilterDropdownShown: boolean = false;
+  private currentGenderFilter: string;
+  private currentAdoptionFilter: string;
+  private currentSpeciesFilter: string;
   private animals: Array<Animal>;
   private animalsSubscription: any;
 
@@ -37,6 +37,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.isAdoptionFilterDropdownShown = appState['dropdown.isAdoptionFilterDropdownShown'];
       this.isSpeciesFilterDropdownShown = appState['dropdown.isSpeciesFilterDropdownShown'];
       this.isGenderFilterDropdownShown = appState['dropdown.isGenderFilterDropdownShown'];
+
+      this.currentGenderFilter = appState['filter.animals.gender'];
+      this.currentAdoptionFilter = appState['filter.animals.adoptionStatus'];
+      this.currentSpeciesFilter = appState['filter.animals.species'];
     });
 
     this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {
@@ -47,17 +51,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   private updateFilterOptions(): void {
 
-    this.filterOptionsGender = [];
-    this.filterOptionsAdoptionStatus = [];
-    this.filterOptionsSpecies = [];
+    this.filterOptionsGender = ['all'];
+    this.filterOptionsAdoptionStatus = ['all', 'adopted', 'not adopted'];
+    this.filterOptionsSpecies = ['all'];
 
     this.animals.forEach((animal) => {
       if (!this.filterOptionsGender.includes(animal.gender.toLowerCase())) {
         this.filterOptionsGender.push(animal.gender.toLowerCase());
       }
-      if (!this.filterOptionsAdoptionStatus.includes(animal.isAdopted)) {
-        this.filterOptionsAdoptionStatus.push(animal.isAdopted);
-      }
+
       if (!this.filterOptionsSpecies.includes(animal.species.toLowerCase())) {
         this.filterOptionsSpecies.push(animal.species.toLowerCase());
       }
@@ -96,35 +98,27 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this._appStateActions.updateState(dropdownUpdate);
   }
 
-  public toggleGenderFilter(filter): void {
+  public applyGenderFilter(filter): void {
     this._appStateActions.updateState({ 'filter.animals.gender': filter });
   }
 
-  public toggleAdoptionFilter(filter): void {
+  public applyAdoptionFilter(filter): void {
     this._appStateActions.updateState({ 'filter.animals.adoptionStatus': filter });
   }
 
-  public toggleSpeciesFilter(filter): void {
+  public applySpeciesFilter(filter): void {
     this._appStateActions.updateState({ 'filter.animals.species': filter });
   }
 
-  // public toggleFilter(filterName: string, filterValue: string): void {
-  //   // console.log(this.updateFilters(filterName, filterValue));
+  public isGenderFilterSelected(filter) {
+    return this.currentGenderFilter === filter;
+  }
 
-  //   this._appStateActions.updateState({ 'filter.animals': filterName });
-  // }
+  public isAdoptionFilterSelected(filter) {
+    return this.currentAdoptionFilter === filter;
+  }
 
-  // public updateFilters(filterName: string, filterValue: string): any {
-  //   return this.filterOptionTypes.map((filter, i) => {
-
-  //     const updatedFilters = [];
-  //     updatedFilters[i] = filter;
-
-  //     if (filter.name === filterName) {
-  //       updatedFilters[i].options[filterValue] = true;
-  //     }
-  //     return updatedFilters;
-  //   });
-  // }
-
+  public isSpeciesFilterSelected(filter) {
+    return this.currentSpeciesFilter === filter;
+  }
 }
