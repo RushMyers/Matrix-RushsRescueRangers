@@ -13,9 +13,10 @@
      * ~~Test other actions and fix bugs related to interacting with API~~
 7. ~~Incorporate angular reactive forms throughout app.~~
      * ~~Update animal component, new animal component, and new adopter modal.~~
-8. Separate filters and enable application of multiple filters.
-9. View Tasks (Outstanding Tasks)
-10. View Activity Log (Completed Tasks)
+8. ~~Separate filters and enable application of multiple filters.~~
+9. Move Filter UI into a sidebar.
+10. View Tasks (Outstanding Tasks)
+11. View Activity Log (Completed Tasks)
 
 ## ERDs
 
