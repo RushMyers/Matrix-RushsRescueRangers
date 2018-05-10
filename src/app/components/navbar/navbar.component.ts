@@ -51,9 +51,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   private updateFilterOptions(): void {
 
-    this.filterOptionsGender = ['all'];
-    this.filterOptionsAdoptionStatus = ['all', 'adopted', 'not adopted'];
-    this.filterOptionsSpecies = ['all'];
+    this.filterOptionsGender = [Constants.FILTER_OPTIONS_ALL];
+    this.filterOptionsAdoptionStatus = [
+      Constants.FILTER_OPTIONS_ALL,
+      Constants.FILTER_OPTIONS_ADOPTED,
+      Constants.FILTER_OPTIONS_NOT_ADOPTED
+    ];
+    this.filterOptionsSpecies = [Constants.FILTER_OPTIONS_ALL];
 
     this.animals.forEach((animal) => {
       if (!this.filterOptionsGender.includes(animal.gender.toLowerCase())) {
