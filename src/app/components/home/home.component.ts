@@ -49,13 +49,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     private filterAnimals(): Array<Animal> {
-        if (!this.filteredAnimals) {
-            this.filteredAnimals = this.animals;
-        }
-
-        if (this.animalsGenderFilter === 'all' || this.animalsAdoptionFilter === 'all' || this.animalsSpeciesFilter === 'all') {
-            this.filteredAnimals = this.animals;
-        }
+        this.filteredAnimals = this.animals;
 
         if (this.animalsGenderFilter && this.animalsGenderFilter !== 'all') {
             this.filteredAnimals = this.filteredAnimals.filter((animal) => {
