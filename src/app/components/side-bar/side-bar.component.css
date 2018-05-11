@@ -1,0 +1,14 @@
+.side-bar {
+    background-color: white;
+    height: 200px;
+    width: 200px;
+    border-radius: 1px;
+    padding: 16px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    margin-right: auto;
+    margin-left: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

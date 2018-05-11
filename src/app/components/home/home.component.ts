@@ -11,15 +11,15 @@ import { Animal } from '../../models/animal';
 })
 
 export class HomeComponent implements OnInit, OnDestroy {
-    public animals: Array<Animal>;
     private animalsSubscription: any;
     private appStoreSubscription: any;
-    public filteredAnimals: Array<Animal>;
     private animalsFilter: any;
     private animalsGenderFilter: string;
     private animalsAdoptionFilter: string;
     private animalsSpeciesFilter: string;
     private currentFilters: Array<any>;
+    public animals: Array<Animal>;
+    public filteredAnimals: Array<Animal>;
 
     constructor(
         private _store: Store<any>,

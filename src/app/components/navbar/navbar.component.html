@@ -1,6 +1,6 @@
 <nav>
   <div class="dropdown">
-    <label for="" (click)="toggleGenderDropdown()">Filter by Gender</label>
+    <label (click)="toggleGenderDropdown()">Filter by Gender</label>
     <div *ngIf="isGenderFilterDropdownShown" class="filters-dropdown">
       <div class="filter-selection" *ngFor="let filter of filterOptionsGender" (click)="applyGenderFilter(filter)">{{ filter | titlecase }}
         <i class="fas fa-check" *ngIf="isGenderFilterSelected(filter)"></i>
@@ -9,7 +9,7 @@
   </div>
 
   <div class="dropdown">
-    <label for="" (click)="toggleAdoptionDropdown()">Filter by Adoption Status</label>
+    <label (click)="toggleAdoptionDropdown()">Filter by Adoption Status</label>
     <div *ngIf="isAdoptionFilterDropdownShown" class="filters-dropdown">
       <div class="filter-selection" *ngFor="let filter of filterOptionsAdoptionStatus" (click)="applyAdoptionFilter(filter)">{{ filter | titlecase }}
         <i class="fas fa-check" *ngIf="isAdoptionFilterSelected(filter)"></i>
@@ -18,7 +18,7 @@
   </div>
 
   <div class="dropdown">
-    <label for="" (click)="toggleSpeciesDropdown()">Filter by Species</label>
+    <label (click)="toggleSpeciesDropdown()">Filter by Species</label>
     <div *ngIf="isSpeciesFilterDropdownShown" class="filters-dropdown">
       <div class="filter-selection" *ngFor="let filter of filterOptionsSpecies" (click)="applySpeciesFilter(filter)">{{ filter | titlecase }}
         <i class="fas fa-check" *ngIf="isSpeciesFilterSelected(filter)"></i>
