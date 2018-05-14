@@ -25,14 +25,13 @@
     display: flex;
     justify-content: space-between;
 }
+.filter-selection:hover {
+    cursor: pointer;
+}
 .dropdown {
     padding: 12px;
 }
 .filter-title {
     padding-bottom: 6px;
     font-weight: bold;
-}
-label:hover {
-    cursor: pointer;
-    opacity: .7;
 }

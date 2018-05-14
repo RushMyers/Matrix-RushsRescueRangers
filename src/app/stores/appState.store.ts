@@ -15,7 +15,7 @@ export interface State {
     // Filters
     'filter.animals.gender': string;
     'filter.animals.adoptionStatus': string;
-    'filter.animals.species': string;
+    'filter.animals.species': Array<string>;
 }
 
 const initialAppState: State = {
@@ -32,7 +32,7 @@ const initialAppState: State = {
     // Filters
     'filter.animals.gender': Constants.FILTER_OPTIONS_ALL,
     'filter.animals.adoptionStatus': Constants.FILTER_OPTIONS_ALL,
-    'filter.animals.species': ''
+    'filter.animals.species': []
 
 };
 
@@ -65,3 +65,4 @@ export function appState(state: State = initialAppState, action: Actions): State
         default:
             return state;
     }
+}

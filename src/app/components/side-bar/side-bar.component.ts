@@ -18,7 +18,7 @@ export class SideBarComponent implements OnInit {
   private appStateSubscription: any;
   public currentGenderFilter: string;
   public currentAdoptionFilter: string;
-  public currentSpeciesFilter: string;
+  public currentSpeciesFilters: Array<string>;
   public filterOptionsGender: Array<string>;
   public filterOptionsAdoptionStatus: Array<string>;
   public filterOptionsSpecies: Array<string>;
@@ -39,7 +39,7 @@ export class SideBarComponent implements OnInit {
 
       this.currentGenderFilter = appState['filter.animals.gender'];
       this.currentAdoptionFilter = appState['filter.animals.adoptionStatus'];
-      this.currentSpeciesFilter = appState['filter.animals.species'];
+      this.currentSpeciesFilters = appState['filter.animals.species'];
     });
   }
 
@@ -51,7 +51,7 @@ export class SideBarComponent implements OnInit {
       Constants.FILTER_OPTIONS_ADOPTED,
       Constants.FILTER_OPTIONS_NOT_ADOPTED
     ];
-    this.filterOptionsSpecies = [Constants.FILTER_OPTIONS_ALL];
+    this.filterOptionsSpecies = [];
 
     this.animals.forEach((animal) => {
       if (!this.filterOptionsGender.includes(animal.gender.toLowerCase())) {
@@ -64,19 +64,30 @@ export class SideBarComponent implements OnInit {
     });
   }
 
-  public applyGenderFilter(filter): void {
+  public applyGenderFilter(filter: string): void {
     this._appStateActions.updateState({ 'filter.animals.gender': filter });
   }
 
-  public applyAdoptionFilter(filter): void {
+  public applyAdoptionFilter(filter: string): void {
     this._appStateActions.updateState({ 'filter.animals.adoptionStatus': filter });
   }
 
-  public applySpeciesFilter(filter): void {
-    this._appStateActions.updateState({ 'filter.animals.species': filter });
+  public applySpeciesFilter(filter: string): void {
+    this.updateCurrentSpeciesFilters(filter);
+    this._appStateActions.updateState({ 'filter.animals.species': this.currentSpeciesFilters });
+  }
+
+  public updateCurrentSpeciesFilters(filter: string): void {
+    if (this.isSpeciesFilterSelected(filter)) {
+      this.currentSpeciesFilters = this.currentSpeciesFilters.filter((filterOption) => {
+        return filterOption !== filter;
+      });
+    } else {
+      this.currentSpeciesFilters.push(filter);
+    }
   }
 
   public isSpeciesFilterSelected(filter) {
-    return this.currentSpeciesFilter === filter;
+    return this.currentSpeciesFilters.includes(filter);
   }
 }

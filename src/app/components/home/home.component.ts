@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private animalsFilter: any;
     private animalsGenderFilter: string;
     private animalsAdoptionFilter: string;
-    private animalsSpeciesFilter: string;
+    private animalsSpeciesFilter: Array<string>;
     private currentFilters: Array<any>;
     public animals: Array<Animal>;
     public filteredAnimals: Array<Animal>;
@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             this.applyAdoptionFilter();
         }
 
-        if (this.animalsSpeciesFilter && this.animalsSpeciesFilter !== Constants.FILTER_OPTIONS_ALL) {
+        if (this.animalsSpeciesFilter.length) {
             this.applySpeciesFilter();
         }
         return this.filteredAnimals;
@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     private applySpeciesFilter() {
         this.filteredAnimals = this.filteredAnimals.filter((animal) => {
-            return animal.species.toLowerCase() === this.animalsSpeciesFilter;
+            return this.animalsSpeciesFilter.includes(animal.species.toLowerCase());
         });
     }
 }

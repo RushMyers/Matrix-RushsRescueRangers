@@ -16,7 +16,7 @@
   </div>
 
   <div class="dropdown">
-    <label class="filter-title" (click)="toggleSpeciesDropdown()">Species</label>
+    <label class="filter-title">Species</label>
     <div class="filters-dropdown">
       <div class="filter-selection" *ngFor="let filter of filterOptionsSpecies" (click)="applySpeciesFilter(filter)">{{ filter | titlecase }}
         <i class="fas fa-check" *ngIf="isSpeciesFilterSelected(filter)"></i>

@@ -1,30 +1,3 @@
 <nav>
-  <div class="dropdown">
-    <label (click)="toggleGenderDropdown()">Filter by Gender</label>
-    <div *ngIf="isGenderFilterDropdownShown" class="filters-dropdown">
-      <div class="filter-selection" *ngFor="let filter of filterOptionsGender" (click)="applyGenderFilter(filter)">{{ filter | titlecase }}
-        <i class="fas fa-check" *ngIf="isGenderFilterSelected(filter)"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="dropdown">
-    <label (click)="toggleAdoptionDropdown()">Filter by Adoption Status</label>
-    <div *ngIf="isAdoptionFilterDropdownShown" class="filters-dropdown">
-      <div class="filter-selection" *ngFor="let filter of filterOptionsAdoptionStatus" (click)="applyAdoptionFilter(filter)">{{ filter | titlecase }}
-        <i class="fas fa-check" *ngIf="isAdoptionFilterSelected(filter)"></i>
-      </div>
-    </div>
-  </div>
-
-  <div class="dropdown">
-    <label (click)="toggleSpeciesDropdown()">Filter by Species</label>
-    <div *ngIf="isSpeciesFilterDropdownShown" class="filters-dropdown">
-      <div class="filter-selection" *ngFor="let filter of filterOptionsSpecies" (click)="applySpeciesFilter(filter)">{{ filter | titlecase }}
-        <i class="fas fa-check" *ngIf="isSpeciesFilterSelected(filter)"></i>
-      </div>
-    </div>
-  </div>
-
   <a class="navbar-link" (click)='newAnimal()'>New Animal</a>
 </nav>
