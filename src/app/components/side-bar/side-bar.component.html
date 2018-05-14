@@ -18,8 +18,11 @@
   <div class="dropdown">
     <label class="filter-title">Species</label>
     <div class="filters-dropdown">
-      <div class="filter-selection" *ngFor="let filter of filterOptionsSpecies" (click)="applySpeciesFilter(filter)">{{ filter | titlecase }}
+      <div class="filter-selection" *ngFor="let filter of filterOptionsSpecies" (click)="applySpeciesFilter(filter)">
+        <i class="far fa-square" *ngIf="!isSpeciesFilterSelected(filter)"></i>
+
         <i class="fas fa-check" *ngIf="isSpeciesFilterSelected(filter)"></i>
+        {{ filter | titlecase }}
       </div>
     </div>
   </div>

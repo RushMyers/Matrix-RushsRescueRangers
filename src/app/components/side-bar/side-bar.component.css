@@ -1,6 +1,6 @@
 .side-bar {
     background-color: white;
-    width: auto;
+    width: 144px;
     border-radius: 1px;
     padding: 16px;
     margin-top: 32px;
@@ -21,6 +21,7 @@
 .filter-selection {
     display: flex;
     justify-content: space-between;
+    margin-top: 4px;
 }
 .filter-selection:hover {
     cursor: pointer;
@@ -31,4 +32,7 @@
 .filter-title {
     padding-bottom: 6px;
     font-weight: bold;
+}
+.align-right {
+    justify-content: flex-end;
 }
