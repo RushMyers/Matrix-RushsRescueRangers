@@ -79,6 +79,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this._router.navigate(['animals/new']);
   }
 
+  public allAnimals(): void {
+    this._router.navigate(['']);
+  }
   // public toggleGenderDropdown(): void {
   //   const dropdownUpdate = this.isGenderFilterDropdownShown ?
   //     { 'dropdown.isGenderFilterDropdownShown': false } :
