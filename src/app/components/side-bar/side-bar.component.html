@@ -1,23 +1,23 @@
 <div class="side-bar container">
-  <b>Filter By:</b>
+  <i>Filter By:</i>
 
   <div class="filter-options">
-    <label>Gender</label>
+    <label class="filter-title">Gender</label>
     <label *ngFor="let filter of filterOptionsGender">
       <input type="radio" [checked]="currentGenderFilter === filter" value="{{filter}}" (click)="applyGenderFilter(filter)"> {{ filter | titlecase}}
     </label>
   </div>
 
   <div class="filter-options">
-    <label>Adoption Status</label>
+    <label class="filter-title">Adoption Status</label>
     <label *ngFor="let filter of filterOptionsAdoptionStatus">
       <input type="radio" [checked]="currentAdoptionFilter === filter" value="{{filter}}" (click)="applyAdoptionFilter(filter)"> {{ filter | titlecase}}
     </label>
   </div>
 
   <div class="dropdown">
-    <label (click)="toggleSpeciesDropdown()">Filter by Species</label>
-    <div *ngIf="isSpeciesFilterDropdownShown" class="filters-dropdown">
+    <label class="filter-title" (click)="toggleSpeciesDropdown()">Species</label>
+    <div class="filters-dropdown">
       <div class="filter-selection" *ngFor="let filter of filterOptionsSpecies" (click)="applySpeciesFilter(filter)">{{ filter | titlecase }}
         <i class="fas fa-check" *ngIf="isSpeciesFilterSelected(filter)"></i>
       </div>

@@ -18,18 +18,19 @@
     padding: 12px;
 }
 .filters-dropdown {
-    padding: 10px;
-    border-radius: 2px;
     display: flex;
     flex-direction: column;
-    background-color: white;
-    color: black;
-    position: absolute;
-    box-shadow: 1px 1px 1px 1px;
-    width: 100px;
+}
+.filter-selection {
+    display: flex;
+    justify-content: space-between;
 }
 .dropdown {
     padding: 12px;
+}
+.filter-title {
+    padding-bottom: 6px;
+    font-weight: bold;
 }
 label:hover {
     cursor: pointer;

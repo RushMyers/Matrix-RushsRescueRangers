@@ -19,7 +19,6 @@ export class SideBarComponent implements OnInit {
   public currentGenderFilter: string;
   public currentAdoptionFilter: string;
   public currentSpeciesFilter: string;
-  public isSpeciesFilterDropdownShown: boolean = false;
   public filterOptionsGender: Array<string>;
   public filterOptionsAdoptionStatus: Array<string>;
   public filterOptionsSpecies: Array<string>;
@@ -31,15 +30,12 @@ export class SideBarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.updateFilterOptions();
-
     this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {
       this.animals = animals;
       this.updateFilterOptions();
     });
 
     this.appStateSubscription = this._store.select('appState').subscribe((appState) => {
-      this.isSpeciesFilterDropdownShown = appState['dropdown.isSpeciesFilterDropdownShown'];
 
       this.currentGenderFilter = appState['filter.animals.gender'];
       this.currentAdoptionFilter = appState['filter.animals.adoptionStatus'];
@@ -66,14 +62,6 @@ export class SideBarComponent implements OnInit {
         this.filterOptionsSpecies.push(animal.species.toLowerCase());
       }
     });
-  }
-
-  public toggleSpeciesDropdown(): void {
-    const dropdownUpdate = this.isSpeciesFilterDropdownShown ?
-      { 'dropdown.isSpeciesFilterDropdownShown': false } :
-      { 'dropdown.isSpeciesFilterDropdownShown': true };
-
-    this._appStateActions.updateState(dropdownUpdate);
   }
 
   public applyGenderFilter(filter): void {
