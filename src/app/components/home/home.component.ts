@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private animalsFilter: any;
     private animalsGenderFilter: string;
     private animalsAdoptionFilter: string;
-    private animalsSpeciesFilter: Array<string>;
+    private animalsSpeciesFilter: Array<string> = [];
     private currentFilters: Array<any>;
     public animals: Array<Animal>;
     public filteredAnimals: Array<Animal>;

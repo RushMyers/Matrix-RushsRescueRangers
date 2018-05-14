@@ -62,10 +62,6 @@ export class AnimalDetailComponent implements OnInit, OnDestroy {
     this._router.navigate([`animals/${this.selectedAnimal.id}/edit`]);
   }
 
-  public showAllAnimals(): void {
-    this._router.navigate(['']);
-  }
-
   public showNewAdopterModal(): void {
     this._appStateActions.updateState({ 'modal.isNewAdopterModalShown': true });
   }

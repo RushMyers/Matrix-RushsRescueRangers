@@ -7,9 +7,6 @@
     margin-bottom: 16px;
     margin-right: auto;
     margin-left: 32px;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-around; */
 }
 .filter-options {
     display: flex;

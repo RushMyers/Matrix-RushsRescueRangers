@@ -22,6 +22,7 @@
     margin: 20px auto;
     border-radius: 5px;
     object-fit: scale-down;
+    max-width: 400px;
 }
 .animal-detail-card .container {
     padding-bottom: 4px;
