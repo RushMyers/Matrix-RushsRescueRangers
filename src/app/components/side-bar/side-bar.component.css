@@ -1,14 +1,37 @@
 .side-bar {
     background-color: white;
-    height: 200px;
-    width: 200px;
+    width: auto;
     border-radius: 1px;
     padding: 16px;
     margin-top: 32px;
     margin-bottom: 16px;
     margin-right: auto;
     margin-left: 32px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
+}
+.filter-options {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 12px;
+}
+.filters-dropdown {
+    padding: 10px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    position: absolute;
+    box-shadow: 1px 1px 1px 1px;
+    width: 100px;
+}
+.dropdown {
+    padding: 12px;
+}
+label:hover {
+    cursor: pointer;
+    opacity: .7;
 }

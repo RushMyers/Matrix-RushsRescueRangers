@@ -30,8 +30,8 @@ const initialAppState: State = {
     'modal.isConfirmDeleteModalShown': false,
 
     // Filters
-    'filter.animals.gender': '',
-    'filter.animals.adoptionStatus': '',
+    'filter.animals.gender': Constants.FILTER_OPTIONS_ALL,
+    'filter.animals.adoptionStatus': Constants.FILTER_OPTIONS_ALL,
     'filter.animals.species': ''
 
 };
@@ -55,6 +55,7 @@ export function appState(state: State = initialAppState, action: Actions): State
                 if (prop in state) {
                     const newValue = action.payload[prop];
                     newState[prop] = newValue;
+
                 } else {
                     console.error(`invalid property [${prop}] passed into AppState-reducer`);
                 }
@@ -63,6 +64,4 @@ export function appState(state: State = initialAppState, action: Actions): State
 
         default:
             return state;
-
     }
-}
