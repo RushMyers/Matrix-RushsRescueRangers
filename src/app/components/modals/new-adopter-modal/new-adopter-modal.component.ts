@@ -30,7 +30,6 @@ export class NewAdopterModalComponent implements OnInit {
 
 
     public createAdoption(): void {
-        console.log(this.newAdopterForm.value);
         this._adoptionActions.createAdoption({ animal: this.currentAnimal, adopter: this.newAdopterForm.value });
     }
 
