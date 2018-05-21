@@ -5,6 +5,6 @@ export class Adopter {
     address: string;
     city: string;
     state: string;
-    zipcode: number;
+    postalCode: number;
     phoneNo: string;
 }

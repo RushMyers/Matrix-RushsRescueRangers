@@ -30,7 +30,8 @@ export class NewAdopterModalComponent implements OnInit {
 
 
     public createAdoption(): void {
-        this._adoptionActions.createAdoption({ animal: this.currentAnimal, adopter: this.newAdopter });
+        console.log(this.newAdopterForm.value);
+        this._adoptionActions.createAdoption({ animal: this.currentAnimal, adopter: this.newAdopterForm.value });
     }
 
     ngOnInit() {
@@ -46,7 +47,7 @@ export class NewAdopterModalComponent implements OnInit {
             address: this.newAdopter.address,
             city: this.newAdopter.address,
             state: this.newAdopter.state,
-            zipcode: this.newAdopter.zipcode,
+            postalCode: this.newAdopter.postalCode,
             phoneNo: this.newAdopter.phoneNo
         });
     }

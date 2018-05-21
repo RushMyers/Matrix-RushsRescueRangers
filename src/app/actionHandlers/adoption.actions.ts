@@ -11,6 +11,7 @@ import { ADD_ADOPTION } from '../stores/adoptions.store';
 import { AppStateActions } from './appState.actions';
 import * as Constants from '../constants/constants';
 import { ADD_ADOPTER } from '../stores/adopters.store';
+import { UPDATE_ANIMAL } from '../stores/animals.store';
 
 @Injectable()
 export class AdoptionActions {
@@ -27,16 +28,13 @@ export class AdoptionActions {
             .subscribe(
                 (res) => {
                     this._appStateActions.updateState({ 'modal.isNewAdopterModalShown': false });
-                    this.updateAnimal(res);
+                    this._store.dispatch({ type: UPDATE_ANIMAL, payload: res });
                     this._store.dispatch({ type: ADD_ADOPTER, payload: adoptionObject.adopter });
-                    this._router.navigate([`/animals/${adoptionObject.animal.id}`]);
+                    this._router.navigate([`/animal/${adoptionObject.animal.id}`]);
                 },
                 (err) => {
                     console.log(err);
                 }
             );
-    }
-    private updateAnimal(animal: Animal): void {
-        this._animalActions.updateAnimal(animal);
     }
 }

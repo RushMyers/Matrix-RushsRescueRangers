@@ -54,6 +54,9 @@ export class SideBarComponent implements OnInit {
     this.filterOptionsSpecies = [];
 
     this.animals.forEach((animal) => {
+      if (!this.filterOptionsGender) {
+        this.filterOptionsGender = [];
+      }
       if (!this.filterOptionsGender.includes(animal.gender.toLowerCase())) {
         this.filterOptionsGender.push(animal.gender.toLowerCase());
       }
