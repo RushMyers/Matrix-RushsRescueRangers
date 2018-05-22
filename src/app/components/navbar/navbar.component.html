@@ -1,4 +1,6 @@
 <nav>
   <a class="navbar-link" (click)='allAnimals()'>All Animals</a>
   <a class="navbar-link" (click)='newAnimal()'>New Animal</a>
+  <a class="navbar-link" (click)='signUp()'>Sign Up</a>
+  <app-sign-up-modal *ngIf="_isSignUpModalShown"></app-sign-up-modal>
 </nav>

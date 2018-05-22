@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     public filteredAnimals: Array<Animal>;
 
     constructor(
-        private _store: Store<any>,
+        private _store: Store<any>
     ) { }
 
     public ngOnInit() {

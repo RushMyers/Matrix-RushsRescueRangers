@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NewAdopterModalComponent } from './components/modals/new-adopter-modal/new-adopter-modal.component';
 import { NewAnimalComponent } from './components/new-animal/new-animal.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { SignUpModalComponent } from './components/modals/sign-up-modal/sign-up-modal.component';
 
 export const APP_COMPONENTS = [
     AdoptionComponent,
@@ -23,5 +24,6 @@ export const APP_COMPONENTS = [
     NavbarComponent,
     NewAdopterModalComponent,
     NewAnimalComponent,
-    SideBarComponent
+    SideBarComponent,
+    SignUpModalComponent
 ];

@@ -9,8 +9,9 @@ export interface State {
     'dropdown.isSpeciesFilterDropdownShown': boolean;
 
     // Modals
-    'modal.isNewAdopterModalShown': boolean;
     'modal.isConfirmDeleteModalShown': boolean;
+    'modal.isNewAdopterModalShown': boolean;
+    'modal.isSignUpModalShown': boolean;
 
     // Filters
     'filter.animals.gender': string;
@@ -28,6 +29,7 @@ const initialAppState: State = {
     // Modals
     'modal.isNewAdopterModalShown': false,
     'modal.isConfirmDeleteModalShown': false,
+    'modal.isSignUpModalShown': false,
 
     // Filters
     'filter.animals.gender': Constants.FILTER_OPTIONS_ALL,

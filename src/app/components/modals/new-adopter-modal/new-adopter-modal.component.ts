@@ -14,7 +14,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 export class NewAdopterModalComponent implements OnInit {
 
-
     @Input() animal;
     public newAdopter: Adopter = new Adopter();
     public currentAnimal: Animal;

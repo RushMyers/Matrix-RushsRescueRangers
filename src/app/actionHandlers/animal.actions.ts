@@ -42,7 +42,6 @@ export class AnimalActions {
     }
 
     public createAnimal(animal: Animal): void {
-
         this._http.post<Animal>(`${Constants.ApiBaseUrl}/animals`, animal)
             .subscribe(
                 (res) => {
