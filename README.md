@@ -16,8 +16,13 @@
 8. ~~Separate filters and enable application of multiple filters.~~
 9. ~~Move Filter UI into a sidebar.~~
 10. ~~Create custom pipe to make first letters of title larger.~~
-11. View Tasks (Outstanding Tasks)
-12. View Activity Log (Completed Tasks)
+11. User Model
+    * Sign Up
+    * Sign In
+    * Edit Account
+    * Delete Account
+12. View Tasks (Outstanding Tasks)
+13. View Activity Log (Completed Tasks)
 
 ## ERDs
 
