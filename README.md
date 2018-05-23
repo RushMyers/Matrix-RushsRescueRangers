@@ -17,10 +17,11 @@
 9. ~~Move Filter UI into a sidebar.~~
 10. ~~Create custom pipe to make first letters of title larger.~~
 11. User Model
-    * Sign Up
-    * Sign In
+    * ~~Sign Up~~
+    * View User Details
     * Edit Account
     * Delete Account
+12. Log In
 12. View Tasks (Outstanding Tasks)
 13. View Activity Log (Completed Tasks)
 
