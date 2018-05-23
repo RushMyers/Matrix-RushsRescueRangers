@@ -3,13 +3,16 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
+import { AppStateActions } from './appState.actions';
 import { User } from '../models/user';
+import { ADD_USER } from '../stores/users.store';
 import * as Constants from '../constants/constants';
 
 @Injectable()
 export class UserActions {
 
     constructor(
+        private _appStateActions: AppStateActions,
         private _http: HttpClient,
         private _router: Router,
         private _store: Store<any>
@@ -19,8 +22,9 @@ export class UserActions {
         this._http.post<User>(`${Constants.ApiBaseUrl}/Users`, user)
             .subscribe(
                 (res) => {
-                    console.log(res);
-                    // this._store.dispatch({ type})
+                    this._store.dispatch({ type: ADD_USER, payload: res });
+                    this._appStateActions.updateState({ 'modal.isSignUpModalShown': false });
+                    this._router.navigate(['']);
                 },
                 (err) => {
                     console.log(err);
