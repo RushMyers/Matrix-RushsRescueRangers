@@ -22,8 +22,9 @@
     * Edit Account
     * Delete Account
 12. Log In
-12. View Tasks (Outstanding Tasks)
-13. View Activity Log (Completed Tasks)
+13. Create global CSS classes for forms.
+14. View Tasks (Outstanding Tasks)
+15. View Activity Log (Completed Tasks)
 
 ## ERDs
 
