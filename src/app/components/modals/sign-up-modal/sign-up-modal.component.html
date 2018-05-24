@@ -1,30 +1,47 @@
 <div class="overlay">
     <div class="modal">
         <div class="container">
-            <form class="form" [formGroup]="userForm" (ngSubmit)="createNewUser()">
-                <h3>Sign Up</h3>
+            <form #form class="form" [formGroup]="userForm" (ngSubmit)="createNewUser()">
+                <h3 class="form-heading">Sign Up</h3>
                 <div class="form-group">
                     <input type="text" formControlName="name" placeholder="Name">
+                    <i class="invalid-field" *ngIf="userForm['controls'].name.invalid && userForm['controls'].name.touched">
+                        Name must be at least 2 characters long.
+                    </i>
                 </div>
                 <div class="form-group">
                     <input type="text" formControlName="userName" placeholder="Username">
+                    <i class="invalid-field" *ngIf="userForm['controls'].userName.invalid && userForm['controls'].userName.touched">
+                        Username is required.
+                    </i>
                 </div>
                 <div class="form-group">
                     <input type="text" formControlName="phoneNo" placeholder="Phone Number">
+                    <i class="invalid-field" *ngIf="userForm['controls'].phoneNo.invalid && userForm['controls'].phoneNo.touched">
+                        Phone Number is required.
+                    </i>
                 </div>
                 <div class="form-group">
                     <input type="text" formControlName="email" placeholder="Email">
+                    <i class="invalid-field" *ngIf="userForm['controls'].email.invalid && userForm['controls'].email.touched">
+                        Please enter a valid email.
+                    </i>
                 </div>
                 <div class="form-group">
                     <input type="password" formControlName="password" placeholder="Password">
+                    <i class="invalid-field" *ngIf="userForm['controls'].password.invalid && userForm['controls'].password.touched">
+                        Password is required.
+                    </i>
                 </div>
                 <div class="form-group">
-                    <input type="password" formControlName="password" placeholder="Confirm Password">
+                    <input type="password" formControlName="passwordConfirmation" placeholder="Confirm Password">
+                    <i class="invalid-field" *ngIf="userForm['controls'].passwordConfirmation.invalid && userForm['controls'].passwordConfirmation.touched">
+                        Passwords must match.
+                    </i>
                 </div>
-
                 <div class="buttons">
                     <button class="button" (click)="closeSignUpModal()">Cancel</button>
-                    <button class="button" (click)="createNewUser()">Submit</button>
+                    <button class="button" (click)="createNewUser()" [disabled]="userForm.invalid">Submit</button>
                 </div>
             </form>
         </div>

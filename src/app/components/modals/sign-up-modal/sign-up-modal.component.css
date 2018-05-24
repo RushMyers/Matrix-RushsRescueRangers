@@ -28,12 +28,13 @@ form {
 }
 form .form-group {
     display: flex;
+    flex-flow: column;
     justify-content: space-between;
     padding: 20px 60px 20px 60px;
 }
 
 form input {
-    min-width: -webkit-fill-available;
+    min-width: stretch;
     height: 22px;
     border-radius: 4px;
     font-size: 16px;
@@ -47,6 +48,18 @@ form input:focus {
     outline: none;
 }
 
+.form-heading {
+    color: #C74432;
+    font-family: 'Rammetto One', cursive;
+    font-style: italic;
+    text-shadow: 0.5px 0.5px 0.5px black;
+}
+.invalid-field {
+    color: red;
+    font-size: smaller;
+    padding-left: inherit;
+    padding-top: 2px;
+}
 .button {
     padding: 6px 12px;
     max-width: fit-content;
