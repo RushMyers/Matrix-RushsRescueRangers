@@ -17,7 +17,10 @@
 9. ~~Move Filter UI into a sidebar.~~
 10. ~~Create custom pipe to make first letters of title larger.~~
 11. User Model
-    * ~~Sign Up~~
+    * Sign Up
+        * ~~pass info from form to action and update state~~
+        * Make UI for validation feedback.
+        * Create custom validation for password confirmation.
     * View User Details
     * Edit Account
     * Delete Account
