@@ -19,8 +19,8 @@
 11. User Model
     * Sign Up
         * ~~pass info from form to action and update state~~
-        * Make UI for validation feedback.
-        * Create custom validation for password confirmation.
+        * ~~Make UI for validation feedback.~~
+        * ~~Create custom validation for password confirmation.~~
     * View User Details
     * Edit Account
     * Delete Account
