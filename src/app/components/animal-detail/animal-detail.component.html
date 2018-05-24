@@ -2,18 +2,17 @@
 
   <img src="{{ selectedAnimal.imageUrl }}" alt="{{ selectedAnimal.name }}">
   <div class="animal-detail-card clearfix">
-    <h2>
-      <b>{{ selectedAnimal?.name }}</b>
-
+    <h3>
+      {{ selectedAnimal?.name }}
       <hr>
-    </h2>
-    <h4>{{ selectedAnimal?.species }}</h4>
-    <h4>Sex: {{ selectedAnimal?.gender }}</h4>
+    </h3>
+    <b>Species: </b>{{ selectedAnimal?.species }}
+    <b>Sex: </b>{{ selectedAnimal?.gender }}
     <p>
       <i>{{ selectedAnimal?.description }}</i>
     </p>
-    <div class="modal-footer">
-      <button *ngIf="isAnimalAvailable" class="button button-blue" (click)="showNewAdopterModal()">Adopt</button>
+    <div class="buttons">
+      <button *ngIf="isAnimalAvailable" class="button" (click)="showNewAdopterModal()">Adopt</button>
       <button class="button button-yellow" (click)="editAnimal()">Edit</button>
       <button class="button button-red" (click)="showConfirmDeleteModal()">Delete</button>
     </div>

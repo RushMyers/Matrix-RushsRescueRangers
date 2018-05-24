@@ -42,11 +42,7 @@ hr {
     border-top: 1px solid #7B5AB1;
 }
 
-.modal-footer {
-    display: flex;
-    justify-content: space-around;
-}
-.button-yellow {
+ .button-yellow {
     background-color: #E8C547
 }
 

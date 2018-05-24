@@ -33,9 +33,9 @@ export class AnimalDetailComponent implements OnInit, OnDestroy {
 
     this.animalsSubscription = this._store.select('animals').subscribe((animals: Array<Animal>) => {
       this.animals = animals;
+      this.getAnimal();
     });
 
-    this.getAnimal();
     this.isAnimalAvailable = !this.selectedAnimal.isAdopted;
 
     this.appStateSubscription = this._store.select('appState').subscribe((appState) => {

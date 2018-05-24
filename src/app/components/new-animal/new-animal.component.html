@@ -1,32 +1,29 @@
 <div class="container">
-  <h3>Register a New Animal</h3>
-
-  <form (ngSubmit)="createAnimal()" class="form clearfix" [formGroup]="newAnimalForm">
+  <form (ngSubmit)="createAnimal()" class="form" [formGroup]="newAnimalForm">
+    <h3 class="form-heading">Register a New Animal</h3>
 
     <div class="form-group">
-      <label for="name ">Name</label>
-      <input type="text " class="input " required name="name" formControlName="name">
+      <input type="text " class="input " required name="name" formControlName="name" placeholder="name">
     </div>
 
     <div class="form-group">
-      <label for="species">Species</label>
-      <input type="text " class="input " formControlName="species" name="species">
+      <input type="text " class="input " formControlName="species" name="species" placeholder="species">
     </div>
 
     <div class="form-group">
-      <label for="gender">Sex</label>
-      <select class="dropdown-select" formControlName="gender" name="gender">
+      <select class="dropdown-select" formControlName="gender" name="gender" [ngClass]="{'valid': newAnimalForm['controls'].gender.value}">
+        <option [defaultSelected]="sexes" hidden disabled>Sex</option>
         <option *ngFor="let sex of sexes" [value]="sex">{{sex}}</option>
       </select>
     </div>
 
     <div class="form-group">
-      <label for="image-url">Image-Url</label>
-      <input type="text " class="input" formControlName="imageUrl" name="imageUrl">
+      <input type="text " class="input" formControlName="imageUrl" name="imageUrl" placeholder="imageUrl">
     </div>
 
-    <button type="button" (click)="createAnimal()" class="new-animal-button">Submit</button>
+    <div class="buttons">
+      <button class="button" type="button" (click)="createAnimal()">Submit</button>
+    </div>
 
   </form>
-
 </div>

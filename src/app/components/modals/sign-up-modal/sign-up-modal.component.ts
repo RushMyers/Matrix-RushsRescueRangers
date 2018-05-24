@@ -30,8 +30,8 @@ export class SignUpModalComponent implements OnInit, OnDestroy {
     }
 
     private createNewUser(): void {
-        console.log(this.mapFormToUser(this.userForm, this.newUser));
-        this._userActions.createUser(this.mapFormToUser(this.userForm, this.newUser));
+        const userForCreation = this.mapFormToUser(this.userForm, this.newUser);
+        this._userActions.createUser(userForCreation);
     }
 
     private mapFormToUser(form: FormGroup, user: User): User {
