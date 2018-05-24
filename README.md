@@ -26,8 +26,9 @@
     * Delete Account
 12. Log In
 13. Create global CSS classes for forms.
-14. View Tasks (Outstanding Tasks)
-15. View Activity Log (Completed Tasks)
+14. Make filters UI screen-size responsive. 
+15. View Tasks (Outstanding Tasks)
+16. View Activity Log (Completed Tasks)
 
 ## ERDs
 
