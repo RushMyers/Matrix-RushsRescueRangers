@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   private appStateSubscription: Subscription;
   public _isSignUpModalShown: boolean;
+  public _isLoginModalShown: boolean;
 
   constructor(
     private _router: Router,
@@ -24,6 +25,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     this.appStateSubscription = this._store.select('appState').subscribe((appState) => {
       this._isSignUpModalShown = appState['modal.isSignUpModalShown'];
+      this._isLoginModalShown = appState['modal.isLoginModalShown'];
     });
   }
   public ngOnDestroy() {
@@ -39,5 +41,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   public signUp(): void {
     this._appStateActions.updateState({ 'modal.isSignUpModalShown': true });
+  }
+  public login(): void {
+    this._appStateActions.updateState({ 'modal.isLoginModalShown': true });
   }
 }

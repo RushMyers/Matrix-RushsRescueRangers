@@ -12,6 +12,7 @@ export interface State {
     'modal.isConfirmDeleteModalShown': boolean;
     'modal.isNewAdopterModalShown': boolean;
     'modal.isSignUpModalShown': boolean;
+    'modal.isLoginModalShown': boolean;
 
     // Filters
     'filter.animals.gender': string;
@@ -30,6 +31,7 @@ const initialAppState: State = {
     'modal.isNewAdopterModalShown': false,
     'modal.isConfirmDeleteModalShown': false,
     'modal.isSignUpModalShown': false,
+    'modal.isLoginModalShown': false,
 
     // Filters
     'filter.animals.gender': Constants.FILTER_OPTIONS_ALL,
