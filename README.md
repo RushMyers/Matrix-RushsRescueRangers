@@ -25,7 +25,7 @@
     * Edit Account
     * Delete Account
 12. Incorporate form validations throughout app.
-13. Log In
+13. Log In / Log Out
 14. ~~Create global CSS classes for forms.~~
 15. Make filters UI screen-size responsive. 
 16. View Tasks (Outstanding Tasks)
