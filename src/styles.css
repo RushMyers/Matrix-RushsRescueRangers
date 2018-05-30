@@ -143,6 +143,7 @@ form input:focus {
     font-family: 'Rammetto One', cursive;
     font-style: italic;
     text-shadow: 0.5px 0.5px 0.5px black;
+    margin: 0 auto;
 }
 .invalid-field {
     color: red;
@@ -172,4 +173,14 @@ form input:focus {
     padding: 16px;
     display: inline-flex;
     justify-content: space-around;
+}
+.cancel {
+    margin-left: auto;
+    margin-top: auto;
+    color: gray;
+    width: 20px;
+    text-align: center;
+}
+.cancel:hover {
+    cursor: pointer;
 }

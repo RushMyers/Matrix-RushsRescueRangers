@@ -2,9 +2,8 @@
 
   <div class="modal">
     <div class="container">
-
-
       <form (ngSubmit)="createAdoption()" class="form clearfix" [formGroup]="newAdopterForm">
+        <div class="cancel" (click)="closeModal()">x</div>
         <h3 class="form-heading">Adopter Information for {{ currentAnimal.name }}</h3>
         <div class="form-group">
           <!-- <label for="firstName">First Name</label> -->
@@ -37,7 +36,6 @@
         </div>
 
         <div class="buttons">
-          <button type="button" class="cancel-adoption-button button" (click)="closeModal()">Cancel</button>
           <button type="button" class="new-adopter-button button" (click)="createAdoption()">Submit</button>
         </div>
 

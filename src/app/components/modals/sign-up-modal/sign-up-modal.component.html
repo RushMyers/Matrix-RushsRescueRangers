@@ -2,6 +2,7 @@
     <div class="modal">
         <div class="container">
             <form #form class="form" [formGroup]="userForm" (ngSubmit)="createNewUser()">
+                <div class="cancel" (click)="closeSignUpModal()">x</div>
                 <h3 class="form-heading">Sign Up</h3>
                 <div class="form-group">
                     <input type="text" formControlName="name" placeholder="Name">
@@ -40,7 +41,6 @@
                     </i>
                 </div>
                 <div class="buttons">
-                    <button class="button" (click)="closeSignUpModal()">Cancel</button>
                     <button class="button" (click)="createNewUser()" [disabled]="userForm.invalid">Submit</button>
                 </div>
             </form>

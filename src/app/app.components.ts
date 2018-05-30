@@ -6,7 +6,7 @@ import { ConfirmDeleteModalComponent } from './components/modals/confirm-delete-
 import { EditAnimalComponent } from './components/edit-animal/edit-animal.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/modals/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NewAdopterModalComponent } from './components/modals/new-adopter-modal/new-adopter-modal.component';
 import { NewAnimalComponent } from './components/new-animal/new-animal.component';
